@@ -8,27 +8,27 @@ import org.junit.Test;
 
 public class CompareScreenshotTest {
 
-	private static final String FILE_1 = new String("src/test/resources/image_1.png");
-	private static final String FILE_2 = new String("src/test/resources/image_2.png");
-	private static final String FILE_50_1 = new String("src/test/resources/image_50_1.png");
-	private static final String FILE_TOTAL_BLACK = new String("src/test/resources/image_total_black.png");
-	private static final String FILE_TOTAL_WHITE = new String("src/test/resources/image_total_white.png");
-	private static final String FILE_50_300 = new String("src/test/resources/image_50_300.png");
-	private static final String FILE_75_2000 = new String("src/test/resources/image_75_2000.png");
-	private static final String FILE_75_300 = new String("src/test/resources/image_75_300.png");
-	private static final String FILE_50_300_400 = new String("src/test/resources/image_50_300_400.png");
-	private static final String FILE_50_400_300 = new String("src/test/resources/image_50_400_300.png");
-	private static final String FILE_TOTAL_WHITE_300 = new String("src/test/resources/image_total_white_300.png");
-	private static final String FILE_TOTAL_BLACK_300 = new String("src/test/resources/image_total_black_300.png");
-	private static final String FILE_TOTAL_WHITE_2000 = new String("src/test/resources/image_total_white_2000.png");
-	private static final String FILE_WIKI_BUILD0_NOCHANGE = new String("src/test/resources/wiki_build0_nochange.png");
-	private static final String FILE_WIKI_BUILD1_NOCHANGE = new String("src/test/resources/wiki_build1_nochange.png");
-	private static final String FILE_WIKI_BUILD0_CHANGE = new String("src/test/resources/wiki_build0_change.png");
-	private static final String FILE_WIKI_BUILD1_CHANGE = new String("src/test/resources/wiki_build1_change.png");
-	private static final String FILE_ERROR1 = new String("src/test/resources/image_error1.png");
-	private static final String FILE_ERROR2 = new String("src/test/resources/image_error2.png");
-	private static final String FILE_SMALLCHANGE1 = new String("src/test/resources/smallchanges1.png");
-	private static final String FILE_SMALLCHANGE2 = new String("src/test/resources/smallchanges2.png");
+	private static final String FILE_1 = new String("test/resources/image_1.png");
+	private static final String FILE_2 = new String("test/resources/image_2.png");
+	private static final String FILE_50_1 = new String("test/resources/image_50_1.png");
+	private static final String FILE_TOTAL_BLACK = new String("test/resources/image_total_black.png");
+	private static final String FILE_TOTAL_WHITE = new String("test/resources/image_total_white.png");
+	private static final String FILE_50_300 = new String("test/resources/image_50_300.png");
+	private static final String FILE_75_2000 = new String("test/resources/image_75_2000.png");
+	private static final String FILE_75_300 = new String("test/resources/image_75_300.png");
+	private static final String FILE_50_300_400 = new String("test/resources/image_50_300_400.png");
+	private static final String FILE_50_400_300 = new String("test/resources/image_50_400_300.png");
+	private static final String FILE_TOTAL_WHITE_300 = new String("test/resources/image_total_white_300.png");
+	private static final String FILE_TOTAL_BLACK_300 = new String("test/resources/image_total_black_300.png");
+	private static final String FILE_TOTAL_WHITE_2000 = new String("test/resources/image_total_white_2000.png");
+	private static final String FILE_WIKI_BUILD0_NOCHANGE = new String("test/resources/wiki_build0_nochange.png");
+	private static final String FILE_WIKI_BUILD1_NOCHANGE = new String("test/resources/wiki_build1_nochange.png");
+	private static final String FILE_WIKI_BUILD0_CHANGE = new String("test/resources/wiki_build0_change.png");
+	private static final String FILE_WIKI_BUILD1_CHANGE = new String("test/resources/wiki_build1_change.png");
+	private static final String FILE_ERROR1 = new String("test/resources/image_error1.png");
+	private static final String FILE_ERROR2 = new String("test/resources/image_error2.png");
+	private static final String FILE_SMALLCHANGE1 = new String("test/resources/smallchanges1.png");
+	private static final String FILE_SMALLCHANGE2 = new String("test/resources/smallchanges2.png");
 
 
 	private String imageA;
