@@ -20,11 +20,14 @@ public class ScanDirectory {
     private ArrayList<File> allFiles;
     private ArrayList<CompareItem> sameFiles;
     private CopyOnWriteArrayList<CompareItem> sameFilesParallel;
+    private CopyOnWriteArrayList<CompareItem> sameFilesParallelThread;
+    private int threadnumber=4;
 
     public ScanDirectory() {
         allFiles = new ArrayList<>();
         sameFiles = new ArrayList<>();
         sameFilesParallel = new CopyOnWriteArrayList<>();
+        sameFilesParallelThread = new CopyOnWriteArrayList<>();
     }
 
 
@@ -87,5 +90,33 @@ public class ScanDirectory {
             );
         });
         return sameFilesParallel;
+    }
+
+    public CopyOnWriteArrayList<CompareItem> scanForSameParallelThread(){
+            CompareThread thread1 = new CompareThread(allFiles,sameFilesParallelThread, 0, 5);
+            Thread t1 = new Thread(thread1);
+            t1.start();
+
+            CompareThread thread2 = new CompareThread(allFiles,sameFilesParallelThread, 6, 10);
+            Thread t2 = new Thread(thread2);
+            t2.start();
+
+        CompareThread thread3 = new CompareThread(allFiles,sameFilesParallelThread, 11, 16);
+        Thread t3 = new Thread(thread3);
+        t3.start();
+
+        CompareThread thread4 = new CompareThread(allFiles,sameFilesParallelThread, 17, 21);
+        Thread t4 = new Thread(thread4);
+        t4.start();
+        try {
+            t1.join();
+            t2.join();
+            t3.join();
+            t4.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return sameFilesParallelThread;
     }
 }
