@@ -1,20 +1,65 @@
+import main.CompareItem;
 import main.PartitionObject;
 import main.ScanDirectory;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by philipp on 20.06.2015.
  */
 public class ScanDirectoryTest {
 
+    ScanDirectory scanDirectory;
+    ArrayList<PartitionObject> temp;
+
+    private void partitionTestPrepare() {
+        scanDirectory = new ScanDirectory();
+    }
+
+
+    @Test
+    public void canDirTest() {
+        partitionTestPrepare();
+        ArrayList<File> allFiles= scanDirectory.scanDir("./bin/resources");
+        Assert.assertEquals(allFiles.size(),21);
+    }
+
+    @Test
+    public void scanForSameTest() {
+        partitionTestPrepare();
+        ArrayList<File> allFiles= scanDirectory.scanDir("./bin/resources");
+        Assert.assertEquals(allFiles.size(),21);
+        ArrayList<CompareItem> sameFiles = scanDirectory.scanForSame();
+        Assert.assertEquals(sameFiles.size(),4);
+    }
+
+    @Test
+         public void scanForSameParallelTest() {
+        partitionTestPrepare();
+        ArrayList<File> allFiles= scanDirectory.scanDir("./bin/resources");
+        Assert.assertEquals(allFiles.size(),21);
+        CopyOnWriteArrayList<CompareItem> sameFiles = scanDirectory.scanForSameParallel();
+        Assert.assertEquals(sameFiles.size(),4);
+    }
+
+    @Test
+    public void scanForSameParallelThreadTest() {
+        partitionTestPrepare();
+        ArrayList<File> allFiles= scanDirectory.scanDir("./bin/resources");
+        Assert.assertEquals(allFiles.size(),21);
+        CopyOnWriteArrayList<CompareItem> sameFiles = scanDirectory.scanForSameParallelThread();
+        Assert.assertEquals(sameFiles.size(),4);
+    }
+
 
     @Test
     public void partitionTestTwenty() {
-        ScanDirectory scanDirectory = new ScanDirectory();
-        ArrayList<PartitionObject> temp = scanDirectory.partition(20);
+        partitionTestPrepare();
+        temp = scanDirectory.partition(20);
         Assert.assertEquals(4, temp.size());
         Assert.assertEquals(0, temp.get(0).getLower());
         Assert.assertEquals(4, temp.get(0).getUpper());
@@ -27,10 +72,12 @@ public class ScanDirectoryTest {
     }
 
 
+
+
     @Test
     public void partitionTestTwentyOne() {
-        ScanDirectory scanDirectory = new ScanDirectory();
-        ArrayList<PartitionObject> temp = scanDirectory.partition(21);
+        partitionTestPrepare();
+        temp = scanDirectory.partition(21);
         Assert.assertEquals(4, temp.size());
         Assert.assertEquals(0, temp.get(0).getLower());
         Assert.assertEquals(4, temp.get(0).getUpper());
@@ -43,8 +90,8 @@ public class ScanDirectoryTest {
     }
 
     public void partitionTestNine() {
-        ScanDirectory scanDirectory = new ScanDirectory();
-        ArrayList<PartitionObject> temp = scanDirectory.partition(9);
+        partitionTestPrepare();
+        temp = scanDirectory.partition(9);
         Assert.assertEquals(4, temp.size());
         Assert.assertEquals(0, temp.get(0).getLower());
         Assert.assertEquals(1, temp.get(0).getUpper());
@@ -57,8 +104,8 @@ public class ScanDirectoryTest {
     }
 
     public void partitionTestTen() {
-        ScanDirectory scanDirectory = new ScanDirectory();
-        ArrayList<PartitionObject> temp = scanDirectory.partition(10);
+        partitionTestPrepare();
+        temp = scanDirectory.partition(10);
         Assert.assertEquals(4, temp.size());
         Assert.assertEquals(0, temp.get(0).getLower());
         Assert.assertEquals(1, temp.get(0).getUpper());

@@ -9,7 +9,9 @@ import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.List;
+import java.util.concurrent.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by philipp on 16.06.15.
@@ -21,7 +23,7 @@ public class ScanDirectory {
     private ArrayList<CompareItem> sameFiles;
     private CopyOnWriteArrayList<CompareItem> sameFilesParallel;
     private CopyOnWriteArrayList<CompareItem> sameFilesParallelThread;
-    private int threadnumber=4;
+    private int threadnumber = 4;
 
     public ScanDirectory() {
         allFiles = new ArrayList<>();
@@ -31,10 +33,9 @@ public class ScanDirectory {
     }
 
 
-
     public ArrayList<File> scanDir(String path) {
         addTree(new File(path), allFiles);
-        System.out.println("Scanning: "+new File(path).getAbsolutePath());
+        System.out.println("Scanning: " + new File(path).getAbsolutePath());
         return allFiles;
     }
 
@@ -54,8 +55,8 @@ public class ScanDirectory {
     public ArrayList<CompareItem> scanForSame() {
         CompareScreenshot compareScreenshot = new CompareScreenshot();
         int numberOfCompares = 0;
-        for (int i = 0; i < allFiles.size()-1; i++) {
-            for (int j = i+1; j < allFiles.size(); j++) {
+        for (int i = 0; i < allFiles.size() - 1; i++) {
+            for (int j = i + 1; j < allFiles.size(); j++) {
                 File file1 = allFiles.get(i);
                 File file2 = allFiles.get(j);
                 int similarity = 0;
@@ -71,14 +72,14 @@ public class ScanDirectory {
                 }
             }
         }
-        System.out.println("numberOfCompares"+numberOfCompares);
+        System.out.println("numberOfCompares" + numberOfCompares);
         return sameFiles;
     }
 
-    public CopyOnWriteArrayList<CompareItem> scanForSameParallel(){
+    public CopyOnWriteArrayList<CompareItem> scanForSameParallel() {
         CompareScreenshot compareScreenshot = new CompareScreenshot();
         allFiles.stream().parallel().forEach(file1 -> {
-            allFiles.stream().parallel().forEach(file2 ->{
+            allFiles.stream().parallel().forEach(file2 -> {
                         int similarity = 0;
                         if (!(file1.getAbsolutePath().equals(file2.getAbsolutePath()))) {
                             similarity = compareScreenshot.compare(file1.getAbsolutePath(), file2.getAbsolutePath());
@@ -95,36 +96,33 @@ public class ScanDirectory {
         return sameFilesParallel;
     }
 
-    public CopyOnWriteArrayList<CompareItem> scanForSameParallelThread(){
-        ArrayList<PartitionObject> partitions = partition(allFiles.size());
+    public CopyOnWriteArrayList<CompareItem> scanForSameParallelThread() {
+        ExecutorService executor = Executors.newFixedThreadPool(4);
+        List<File> allFilesSorted = allFiles.stream().parallel().sorted((file1, file2) -> (int) (file1.length() - file2.length())).collect(Collectors.toList());
+        ArrayList<PartitionObject> partitions = partition(allFilesSorted.size());
         for (PartitionObject partition : partitions) {
-            System.out.println(partition.getLower()+":"+partition.getUpper());
-            CompareThread thread = new CompareThread(allFiles,sameFilesParallelThread, partition.getLower(), partition.getUpper());
-            Thread t = new Thread(thread);
-            t.start();
-            try {
-                t.join();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+            Runnable worker = new CompareThread((ArrayList<File>) allFilesSorted, sameFilesParallelThread, partition.getLower(), partition.getUpper());
+            executor.execute(worker);
         }
-
+        executor.shutdown();
+        while (!executor.isTerminated()) {
+        }
+        System.out.println("Finished all threads");
         return sameFilesParallelThread;
     }
 
     public ArrayList<PartitionObject> partition(int size) {
         ArrayList temp = new ArrayList();
-        int step = size/threadnumber;
+        int step = size / threadnumber;
         for (int i = 0; i < threadnumber; i++) {
-            int start = i*step;
+            int start = i * step;
             int end;
-            if(i==threadnumber-1){
-                end=size-1;
+            if (i == threadnumber - 1) {
+                end = size - 1;
+            } else {
+                end = (i * step) + step - 1;
             }
-            else{
-                end=(i*step)+step-1;
-            }
-            temp.add(new PartitionObject(start,end));
+            temp.add(new PartitionObject(start, end));
         }
         return temp;
     }

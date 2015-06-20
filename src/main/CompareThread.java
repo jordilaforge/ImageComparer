@@ -24,13 +24,16 @@ public class CompareThread implements Runnable{
     @Override
     public void run() {
         CompareScreenshot compareScreenshot = new CompareScreenshot();
-        for (int i = lowerBound; i < upperBound-1; i++) {
+        long startTime = System.currentTimeMillis();
+        int numberOfCompares = 0;
+        for (int i = lowerBound; i <= upperBound; i++) {
             for (int j = i+1; j < allFiles.size(); j++) {
                 File file1 = allFiles.get(i);
                 File file2 = allFiles.get(j);
                 int similarity = 0;
                 if (!(file1.getAbsolutePath().equals(file2.getAbsolutePath()))) {
                     similarity = compareScreenshot.compare(file1.getAbsolutePath(), file2.getAbsolutePath());
+                    ++numberOfCompares;
                     if (similarity == 100) {
                         CompareItem compareItem = new CompareItem(file1.getName(), file2.getName(), similarity);
                         if (compareItem != null) {
@@ -40,5 +43,7 @@ public class CompareThread implements Runnable{
                 }
             }
         }
+        long estimatedTime = System.currentTimeMillis() - startTime;
+        System.out.println("Worker: ["+lowerBound+"]["+upperBound+"] numberOfCompares: " + numberOfCompares+" time: "+ estimatedTime+"ms");
     }
 }
