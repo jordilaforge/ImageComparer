@@ -43,7 +43,7 @@ public class ScanDirectory {
         File[] children = file.listFiles();
         if (children != null) {
             for (File child : children) {
-                if (child.getName().toLowerCase().endsWith(".png")) {
+                if (child.getName().toLowerCase().endsWith(".png")||child.getName().toLowerCase().endsWith(".jpg")) {
                     all.add(child);
                 }
                 addTree(child, all);
