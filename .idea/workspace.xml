@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b2a0561-506e-4a5a-bf5a-93a7ab54d66a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImageComparer.iml" afterPath="$PROJECT_DIR$/ImageComparer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ImageComparerMain.java" afterPath="$PROJECT_DIR$/src/main/ImageComparerMain.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ScanDirectory.java" afterPath="$PROJECT_DIR$/src/main/ScanDirectory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ImageComparer.iws" />
@@ -622,12 +619,19 @@
       <workItem from="1434783585505" duration="1712000" />
       <workItem from="1434791940171" duration="15223000" />
       <workItem from="1440511885500" duration="4470000" />
-      <workItem from="1440523319751" duration="2829000" />
+      <workItem from="1440523319751" duration="2880000" />
     </task>
+    <task id="LOCAL-00001" summary="Added Simple JavaFX GUI still lot to do">
+      <created>1440526200816</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1440526200816</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47926000" />
+    <option name="totallyTimeSpent" value="47977000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1928" height="1164" extended-state="6" />
@@ -695,6 +699,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added Simple JavaFX GUI still lot to do" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Simple JavaFX GUI still lot to do" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
