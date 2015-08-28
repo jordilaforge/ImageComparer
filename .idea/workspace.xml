@@ -29,8 +29,8 @@
       <file leaf-file-name="ImageComparerMain.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/ImageComparerMain.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6878531">
-              <caret line="157" column="51" selection-start-line="157" selection-start-column="51" selection-end-line="157" selection-end-column="51" />
+            <state vertical-scroll-proportion="0.4665757">
+              <caret line="77" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -610,7 +610,7 @@
       <workItem from="1440701018263" duration="2172000" />
       <workItem from="1440716604290" duration="9583000" />
       <workItem from="1440755494686" duration="2391000" />
-      <workItem from="1440763744657" duration="7440000" />
+      <workItem from="1440763744657" duration="13049000" />
     </task>
     <task id="LOCAL-00001" summary="Added Simple JavaFX GUI still lot to do">
       <created>1440526200816</created>
@@ -624,11 +624,17 @@
       <option name="project" value="LOCAL" />
       <updated>1440769257331</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="implemented javafx task but image are not showing">
+      <created>1440772810619</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1440772810619</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70230000" />
+    <option name="totallyTimeSpent" value="75839000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-4" y="-4" width="1928" height="1164" extended-state="6" />
@@ -700,7 +706,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Simple JavaFX GUI still lot to do" />
     <MESSAGE value="Progress Bar and code and Gui improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Progress Bar and code and Gui improvements" />
+    <MESSAGE value="implemented javafx task but image are not showing" />
+    <option name="LAST_COMMIT_MESSAGE" value="implemented javafx task but image are not showing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1120,8 +1127,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ImageComparerMain.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6878531">
-          <caret line="157" column="51" selection-start-line="157" selection-start-column="51" selection-end-line="157" selection-end-column="51" />
+        <state vertical-scroll-proportion="0.4665757">
+          <caret line="77" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
