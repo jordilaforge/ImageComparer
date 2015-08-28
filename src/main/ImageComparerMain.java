@@ -1,6 +1,7 @@
 package main;
 
 import javafx.application.Application;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
@@ -38,6 +39,7 @@ public class ImageComparerMain extends Application{
 	ScanDirectory scanDirectory;
 	CopyOnWriteArrayList<CompareItem> sameFilesParallelThread;
 	GridPane gridPane;
+	ProgressBar pb;
 
 	@Override
 	public void start(Stage primaryStage) throws Exception{
@@ -96,7 +98,7 @@ public class ImageComparerMain extends Application{
 		//statusbar
 		HBox hboxStatus = new HBox();
 		hboxStatus.setStyle("-fx-background-color: #DCF0F7;");
-		ProgressBar pb = new ProgressBar(0);
+		pb = new ProgressBar(0);
 
 		status = new Text();
 		status.setText("No Directory Selected...");
@@ -122,57 +124,56 @@ public class ImageComparerMain extends Application{
 
 	public void doComparison(String absolutePath){
 
-		System.out.println("Number of images found: "+allFiles.size());
 
 
-		long startTime = System.currentTimeMillis();
-		sameFilesParallelThread = scanDirectory.scanForSameParallelThread();
-		for (CompareItem compareItem : sameFilesParallelThread) {
-			System.out.println("Image1: "+compareItem.getImage1()+" Image2: "+compareItem.getImage2()+" Similarity: "+compareItem.getSimilarity());
-		}
-		System.out.println("number of similar elements: "+sameFilesParallelThread.size());
-		long estimatedTime = System.currentTimeMillis() - startTime;
-		System.out.println("Total established time: " + estimatedTime + " ms");
-		if(sameFilesParallelThread.size()>0){
-			status.setText("Finished! similar Images: " + sameFilesParallelThread.size());
-			for(int i=0;i<sameFilesParallelThread.size();++i){
-				Image imagel=null;
-				Image imager=null;
-				try {
-					imagel = new Image(String.valueOf(new File(sameFilesParallelThread.get(i).getImage1()).toURI().toURL()));
-					imager = new Image(String.valueOf(new File(sameFilesParallelThread.get(i).getImage2()).toURI().toURL()));
-				} catch (MalformedURLException e) {
-					e.printStackTrace();
-				}
-				ImageView picl = new ImageView();
-				picl.setImage(imagel);
-				picl.setFitHeight(100);
-				picl.setFitWidth(100);
-				VBox vboxPicL = new VBox();
-				Text namel = new Text(sameFilesParallelThread.get(i).getImage1().substring(sameFilesParallelThread.get(i).getImage1().lastIndexOf("\\") + 1));
-				vboxPicL.getChildren().addAll(picl, namel);
-				gridPane.add(vboxPicL, 0, i);
-				Text similarityName = new Text();
-				similarityName.setText("Similarity");
-				Text similarity = new Text(String.valueOf(sameFilesParallelThread.get(i).getSimilarity()) + "%");
-				VBox vboxSimilarity = new VBox();
-				vboxSimilarity.getChildren().addAll(similarityName,similarity);
-				vboxSimilarity.setAlignment(Pos.CENTER);
-				gridPane.add(vboxSimilarity, 1, i);
-				ImageView picr = new ImageView();
-				picr.setImage(imager);
-				picr.setFitHeight(100);
-				picr.setFitWidth(100);
-				VBox vboxPicR = new VBox();
-				Text namer = new Text(sameFilesParallelThread.get(i).getImage2().substring(sameFilesParallelThread.get(i).getImage2().lastIndexOf("\\")+1));
-				vboxPicR.getChildren().addAll(picr, namer);
-				gridPane.add(vboxPicR, 2, i);
+		Task task = new Task<Void>() {
+			@Override
+			public Void call() {
+				sameFilesParallelThread= scanDirectory.scanForSameParallelThread();
+					status.setText("Finished! similar Images: " + sameFilesParallelThread.size());
+					for(int i=0;i<sameFilesParallelThread.size();++i){
+						Image imagel=null;
+						Image imager=null;
+						try {
+							imagel = new Image(String.valueOf(new File(sameFilesParallelThread.get(i).getImage1()).toURI().toURL()));
+							imager = new Image(String.valueOf(new File(sameFilesParallelThread.get(i).getImage2()).toURI().toURL()));
+						} catch (MalformedURLException e) {
+							e.printStackTrace();
+						}
+						ImageView picl = new ImageView();
+						picl.setImage(imagel);
+						picl.setFitHeight(100);
+						picl.setFitWidth(100);
+						VBox vboxPicL = new VBox();
+						Text namel = new Text(sameFilesParallelThread.get(i).getImage1().substring(sameFilesParallelThread.get(i).getImage1().lastIndexOf("\\") + 1));
+						vboxPicL.getChildren().addAll(picl, namel);
+						gridPane.add(vboxPicL, 0, i);
+						Text similarityName = new Text();
+						similarityName.setText("Similarity");
+						Text similarity = new Text(String.valueOf(sameFilesParallelThread.get(i).getSimilarity()) + "%");
+						VBox vboxSimilarity = new VBox();
+						vboxSimilarity.getChildren().addAll(similarityName,similarity);
+						vboxSimilarity.setAlignment(Pos.CENTER);
+						gridPane.add(vboxSimilarity, 1, i);
+						ImageView picr = new ImageView();
+						picr.setImage(imager);
+						picr.setFitHeight(100);
+						picr.setFitWidth(100);
+						VBox vboxPicR = new VBox();
+						Text namer = new Text(sameFilesParallelThread.get(i).getImage2().substring(sameFilesParallelThread.get(i).getImage2().lastIndexOf("\\")+1));
+						vboxPicR.getChildren().addAll(picr, namer);
+						gridPane.add(vboxPicR, 2, i);
+						updateProgress(i,sameFilesParallelThread.size());
+					}
+
+
+				return null;
 			}
+		};
+		pb.progressProperty().bind(task.progressProperty());
+		new Thread(task).start();
 
-		}
-		else{
-			status.setText("Finished! No Similar Images found!");
-		}
+
 		System.out.println("Finished");
 	}
 
