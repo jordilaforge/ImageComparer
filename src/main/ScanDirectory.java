@@ -64,7 +64,7 @@ public class ScanDirectory {
                     similarity = compareScreenshot.compare(file1.getAbsolutePath(), file2.getAbsolutePath());
                     ++numberOfCompares;
                     if (similarity == 100) {
-                        CompareItem compareItem = new CompareItem(file1.getName(), file2.getName(), similarity);
+                        CompareItem compareItem = new CompareItem(file1.getAbsolutePath(), file2.getAbsolutePath(), similarity);
                         if (compareItem != null) {
                             sameFiles.add(compareItem);
                         }
@@ -84,7 +84,7 @@ public class ScanDirectory {
                         if (!(file1.getAbsolutePath().equals(file2.getAbsolutePath()))) {
                             similarity = compareScreenshot.compare(file1.getAbsolutePath(), file2.getAbsolutePath());
                             if (similarity == 100) {
-                                CompareItem compareItem = new CompareItem(file1.getName(), file2.getName(), similarity);
+                                CompareItem compareItem = new CompareItem(file1.getAbsolutePath(), file2.getAbsolutePath(), similarity);
                                 if (!(sameFilesParallel.contains(compareItem))) {
                                     sameFilesParallel.add(compareItem);
                                 }
