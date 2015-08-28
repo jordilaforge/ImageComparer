@@ -5,17 +5,17 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
@@ -71,7 +71,7 @@ public class ImageComparerMain extends Application{
 		btn2.setOnAction(e -> {
 			if(allFiles.size()>0){
 				status.setText("Searching...");
-				doComparison(field.getText());
+					doComparison(field.getText());
 			}
 			else{
 				status.setText("No Image Files Found!");
@@ -90,15 +90,17 @@ public class ImageComparerMain extends Application{
 		Text c = new Text("");
 		gridPane.add(a, 0, 0);
 		gridPane.add(b, 1, 0);
-		gridPane.add(c,2,0);
+		gridPane.add(c, 2, 0);
 		ScrollPane sp = new ScrollPane();
 		sp.setContent(gridPane);
 		//statusbar
 		HBox hboxStatus = new HBox();
 		hboxStatus.setStyle("-fx-background-color: #DCF0F7;");
+		ProgressBar pb = new ProgressBar(0);
+
 		status = new Text();
 		status.setText("No Directory Selected...");
-		hboxStatus.getChildren().add(status);
+		hboxStatus.getChildren().addAll(pb,status);
 		//borderpane
 		BorderPane border = new BorderPane();
 		border.setTop(hbox);
@@ -146,15 +148,25 @@ public class ImageComparerMain extends Application{
 				picl.setImage(imagel);
 				picl.setFitHeight(100);
 				picl.setFitWidth(100);
-				gridPane.add(picl,0,i);
-				Text similarity = new Text();
-				similarity.setText("Similarity: "+String.valueOf(sameFilesParallelThread.get(i).getSimilarity())+"%");
-				gridPane.add(similarity,1,i);
+				VBox vboxPicL = new VBox();
+				Text namel = new Text(sameFilesParallelThread.get(i).getImage1().substring(sameFilesParallelThread.get(i).getImage1().lastIndexOf("\\") + 1));
+				vboxPicL.getChildren().addAll(picl, namel);
+				gridPane.add(vboxPicL, 0, i);
+				Text similarityName = new Text();
+				similarityName.setText("Similarity");
+				Text similarity = new Text(String.valueOf(sameFilesParallelThread.get(i).getSimilarity()) + "%");
+				VBox vboxSimilarity = new VBox();
+				vboxSimilarity.getChildren().addAll(similarityName,similarity);
+				vboxSimilarity.setAlignment(Pos.CENTER);
+				gridPane.add(vboxSimilarity, 1, i);
 				ImageView picr = new ImageView();
 				picr.setImage(imager);
 				picr.setFitHeight(100);
 				picr.setFitWidth(100);
-				gridPane.add(picr,2,i);
+				VBox vboxPicR = new VBox();
+				Text namer = new Text(sameFilesParallelThread.get(i).getImage2().substring(sameFilesParallelThread.get(i).getImage2().lastIndexOf("\\")+1));
+				vboxPicR.getChildren().addAll(picr, namer);
+				gridPane.add(vboxPicR, 2, i);
 			}
 
 		}
