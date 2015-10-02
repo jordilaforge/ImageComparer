@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0b2a0561-506e-4a5a-bf5a-93a7ab54d66a" name="Default" comment="added support for jpeg files">
+    <list default="true" id="0b2a0561-506e-4a5a-bf5a-93a7ab54d66a" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/CompareItem.java" afterPath="$PROJECT_DIR$/src/main/CompareItem.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/CompareScreenshot.java" afterPath="$PROJECT_DIR$/src/main/CompareScreenshot.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/CompareThread.java" afterPath="$PROJECT_DIR$/src/main/CompareThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ImageComparerMain.java" afterPath="$PROJECT_DIR$/src/main/ImageComparerMain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/PartitionObject.java" afterPath="$PROJECT_DIR$/src/main/PartitionObject.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ScanDirectory.java" afterPath="$PROJECT_DIR$/src/main/ScanDirectory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -30,7 +35,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/ImageComparerMain.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="77" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
+              <caret line="111" column="48" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -40,17 +45,17 @@
         <entry file="file://$PROJECT_DIR$/src/main/PartitionObject.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+              <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScanDirectory.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScanDirectory.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/ScanDirectory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.51153463">
-              <caret line="45" column="160" selection-start-line="45" selection-start-column="160" selection-end-line="45" selection-end-column="160" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="138" column="28" selection-start-line="138" selection-start-column="28" selection-end-line="138" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -60,17 +65,17 @@
         <entry file="file://$PROJECT_DIR$/src/main/CompareThread.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+              <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompareScreenshot.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="CompareScreenshot.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/CompareScreenshot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.09027081">
+              <caret line="11" column="69" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -80,7 +85,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/CompareItem.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="5" selection-end-column="3" />
               <folding />
             </state>
           </provider>
@@ -107,14 +112,14 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/test/CompareScreenshotTest.java" />
-        <option value="$PROJECT_DIR$/src/main/CompareScreenshot.java" />
-        <option value="$PROJECT_DIR$/src/main/CompareItem.java" />
-        <option value="$PROJECT_DIR$/src/main/PartitionObject.java" />
         <option value="$PROJECT_DIR$/test/ScanDirectoryTest.java" />
         <option value="$PROJECT_DIR$/src/main/Controller.java" />
         <option value="$PROJECT_DIR$/src/main/sample.fxml" />
-        <option value="$PROJECT_DIR$/src/main/CompareThread.java" />
         <option value="$PROJECT_DIR$/src/main/ImageComparerMain.java" />
+        <option value="$PROJECT_DIR$/src/main/CompareItem.java" />
+        <option value="$PROJECT_DIR$/src/main/PartitionObject.java" />
+        <option value="$PROJECT_DIR$/src/main/CompareScreenshot.java" />
+        <option value="$PROJECT_DIR$/src/main/CompareThread.java" />
         <option value="$PROJECT_DIR$/src/main/ScanDirectory.java" />
       </list>
     </option>
@@ -605,7 +610,7 @@
       <workItem from="1440716604290" duration="9583000" />
       <workItem from="1440755494686" duration="2391000" />
       <workItem from="1440763744657" duration="13049000" />
-      <workItem from="1443772592771" duration="1090000" />
+      <workItem from="1443772592771" duration="3296000" />
     </task>
     <task id="LOCAL-00001" summary="Added Simple JavaFX GUI still lot to do">
       <created>1440526200816</created>
@@ -625,11 +630,17 @@
       <option name="project" value="LOCAL" />
       <updated>1440772810619</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="added support for jpeg files">
+      <created>1443781881097</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1443781881097</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76929000" />
+    <option name="totallyTimeSpent" value="79135000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="2560" height="1440" extended-state="6" />
@@ -1043,22 +1054,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/CompareScreenshot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/CompareItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/ScanDirectoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34615386">
@@ -1073,10 +1068,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/CompareThread.java">
+    <entry file="file://$PROJECT_DIR$/src/main/CompareItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="5" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ScanDirectory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="138" column="28" selection-start-line="138" selection-start-column="28" selection-end-line="138" selection-end-column="28" />
           <folding />
         </state>
       </provider>
@@ -1084,7 +1087,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/PartitionObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="11" column="23" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <caret line="4" column="51" selection-start-line="4" selection-start-column="51" selection-end-line="4" selection-end-column="51" />
           <folding />
         </state>
       </provider>
@@ -1092,15 +1095,23 @@
     <entry file="file://$PROJECT_DIR$/src/main/ImageComparerMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="77" column="51" selection-start-line="77" selection-start-column="51" selection-end-line="77" selection-end-column="51" />
+          <caret line="111" column="48" selection-start-line="111" selection-start-column="48" selection-end-line="111" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ScanDirectory.java">
+    <entry file="file://$PROJECT_DIR$/src/main/CompareThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51153463">
-          <caret line="45" column="160" selection-start-line="45" selection-start-column="160" selection-end-line="45" selection-end-column="160" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="39" selection-start-line="8" selection-start-column="39" selection-end-line="8" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/CompareScreenshot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.09027081">
+          <caret line="11" column="69" selection-start-line="11" selection-start-column="69" selection-end-line="11" selection-end-column="69" />
           <folding />
         </state>
       </provider>

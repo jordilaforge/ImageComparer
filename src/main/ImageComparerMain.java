@@ -109,7 +109,7 @@ public class ImageComparerMain extends Application {
         //layout
         StackPane layout = new StackPane();
         layout.getChildren().add(border);
-        Scene scene = new Scene(layout, 600, 275);
+        Scene scene = new Scene(layout, 600, 300);
         primaryStage.setScene(scene);
         primaryStage.show();
     }

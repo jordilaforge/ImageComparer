@@ -7,7 +7,10 @@ import java.io.FileInputStream;
 
 import javax.imageio.ImageIO;
 
-
+/**
+ * Created by philipp on 16.06.15.
+ * Class to compare two screenshots based on there pixels (low level)
+ */
 public class CompareScreenshot {
 	//private static final Logger LOGGER = Logger.getLogger(CompareScreenshot.class);
 	 /**

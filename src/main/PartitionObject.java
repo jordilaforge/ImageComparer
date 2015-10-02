@@ -2,6 +2,8 @@ package main;
 
 /**
  * Created by philipp on 20.06.2015.
+ * Object to hold data of a partition lower and upper variables for upper and lower bound
+ * of the partition
  */
 public class PartitionObject {
     private int lower;

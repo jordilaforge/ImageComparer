@@ -15,6 +15,7 @@ import java.util.stream.Collectors;
 
 /**
  * Created by philipp on 16.06.15.
+ * class to scan directory and creating partitions
  */
 public class ScanDirectory {
 
@@ -32,13 +33,22 @@ public class ScanDirectory {
         sameFilesParallelThread = new CopyOnWriteArrayList<>();
     }
 
-
+    /**
+     * scans all files in a directory
+     * @param path of directory
+     * @return ArrayList of all Files in directory
+     */
     public ArrayList<File> scanDir(String path) {
         addTree(new File(path), allFiles);
         System.out.println("Scanning: " + new File(path).getAbsolutePath());
         return allFiles;
     }
 
+    /**
+     * helper method for scanning childs in a directory
+     * @param file path of directory
+     * @param all all files
+     */
     private void addTree(File file, Collection<File> all) {
         File[] children = file.listFiles();
         if (children != null) {
@@ -52,6 +62,10 @@ public class ScanDirectory {
         }
     }
 
+    /**
+     * scans all files for given similarity (single thread)
+     * @return ArrayList of similar images
+     */
     public ArrayList<CompareItem> scanForSame() {
         CompareScreenshot compareScreenshot = new CompareScreenshot();
         int numberOfCompares = 0;
@@ -76,6 +90,10 @@ public class ScanDirectory {
         return sameFiles;
     }
 
+    /**
+     * scans all files for given similarity (multithreaded streams)
+     * @return CopyOnWriteArrayList of similar images
+     */
     public CopyOnWriteArrayList<CompareItem> scanForSameParallel() {
         CompareScreenshot compareScreenshot = new CompareScreenshot();
         allFiles.stream().parallel().forEach(file1 -> {
@@ -96,6 +114,10 @@ public class ScanDirectory {
         return sameFilesParallel;
     }
 
+    /**
+     * scans all files for given similarity (multithreaded threads)
+     * @return CopyOnWriteArrayList of similar images
+     */
     public CopyOnWriteArrayList<CompareItem> scanForSameParallelThread() {
         ExecutorService executor = Executors.newFixedThreadPool(4);
         List<File> allFilesSorted = allFiles.stream().parallel().sorted((file1, file2) -> (int) (file1.length() - file2.length())).collect(Collectors.toList());
@@ -111,6 +133,11 @@ public class ScanDirectory {
         return sameFilesParallelThread;
     }
 
+    /**
+     * creates equaly sized partitions for given elements
+     * @param size number of elements
+     * @return ArrayList of PartitionObject
+     */
     public ArrayList<PartitionObject> partition(int size) {
         ArrayList temp = new ArrayList();
         int step = size / threadnumber;

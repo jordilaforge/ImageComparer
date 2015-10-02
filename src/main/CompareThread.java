@@ -6,6 +6,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by philipp on 16.06.15.
+ * class to handle more than one thread
  */
 public class CompareThread implements Runnable{
 
@@ -22,6 +23,9 @@ public class CompareThread implements Runnable{
     }
 
     @Override
+    /**
+     * Thread method to wich compares screenshots and ad them to a list
+     */
     public void run() {
         CompareScreenshot compareScreenshot = new CompareScreenshot();
         long startTime = System.currentTimeMillis();
