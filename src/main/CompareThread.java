@@ -34,15 +34,13 @@ public class CompareThread implements Runnable{
             for (int j = i+1; j < allFiles.size(); j++) {
                 File file1 = allFiles.get(i);
                 File file2 = allFiles.get(j);
-                int similarity = 0;
+                int similarity;
                 if (!(file1.getAbsolutePath().equals(file2.getAbsolutePath()))) {
                     similarity = compareScreenshot.compare(file1.getAbsolutePath(), file2.getAbsolutePath());
                     ++numberOfCompares;
                     if (similarity == 100) {
                         CompareItem compareItem = new CompareItem(file1.getAbsolutePath(), file2.getAbsolutePath(), similarity);
-                        if (compareItem != null) {
-                            sameFilesParallel.add(compareItem);
-                        }
+                        sameFilesParallel.add(compareItem);
                     }
                 }
             }

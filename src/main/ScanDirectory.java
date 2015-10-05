@@ -1,12 +1,6 @@
 package main;
 
 import java.io.File;
-import java.io.IOException;
-import java.nio.file.FileVisitResult;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.SimpleFileVisitor;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -24,7 +18,7 @@ public class ScanDirectory {
     private ArrayList<CompareItem> sameFiles;
     private CopyOnWriteArrayList<CompareItem> sameFilesParallel;
     private CopyOnWriteArrayList<CompareItem> sameFilesParallelThread;
-    private int threadnumber = 4;
+    private static final int threadnumber = 4;
 
     public ScanDirectory() {
         allFiles = new ArrayList<>();
@@ -73,15 +67,13 @@ public class ScanDirectory {
             for (int j = i + 1; j < allFiles.size(); j++) {
                 File file1 = allFiles.get(i);
                 File file2 = allFiles.get(j);
-                int similarity = 0;
+                int similarity;
                 if (!(file1.getAbsolutePath().equals(file2.getAbsolutePath()))) {
                     similarity = compareScreenshot.compare(file1.getAbsolutePath(), file2.getAbsolutePath());
                     ++numberOfCompares;
                     if (similarity == 100) {
                         CompareItem compareItem = new CompareItem(file1.getAbsolutePath(), file2.getAbsolutePath(), similarity);
-                        if (compareItem != null) {
-                            sameFiles.add(compareItem);
-                        }
+                        sameFiles.add(compareItem);
                     }
                 }
             }
@@ -96,21 +88,19 @@ public class ScanDirectory {
      */
     public CopyOnWriteArrayList<CompareItem> scanForSameParallel() {
         CompareScreenshot compareScreenshot = new CompareScreenshot();
-        allFiles.stream().parallel().forEach(file1 -> {
-            allFiles.stream().parallel().forEach(file2 -> {
-                        int similarity = 0;
-                        if (!(file1.getAbsolutePath().equals(file2.getAbsolutePath()))) {
-                            similarity = compareScreenshot.compare(file1.getAbsolutePath(), file2.getAbsolutePath());
-                            if (similarity == 100) {
-                                CompareItem compareItem = new CompareItem(file1.getAbsolutePath(), file2.getAbsolutePath(), similarity);
-                                if (!(sameFilesParallel.contains(compareItem))) {
-                                    sameFilesParallel.add(compareItem);
-                                }
+        allFiles.stream().parallel().forEach(file1 -> allFiles.stream().parallel().forEach(file2 -> {
+                    int similarity = 0;
+                    if (!(file1.getAbsolutePath().equals(file2.getAbsolutePath()))) {
+                        similarity = compareScreenshot.compare(file1.getAbsolutePath(), file2.getAbsolutePath());
+                        if (similarity == 100) {
+                            CompareItem compareItem = new CompareItem(file1.getAbsolutePath(), file2.getAbsolutePath(), similarity);
+                            if (!(sameFilesParallel.contains(compareItem))) {
+                                sameFilesParallel.add(compareItem);
                             }
                         }
                     }
-            );
-        });
+                }
+        ));
         return sameFilesParallel;
     }
 
