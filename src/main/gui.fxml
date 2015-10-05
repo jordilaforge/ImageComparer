@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.TextField.*?>
+
+<?import com.sun.javafx.scene.control.skin.TabPaneSkin.TabContentRegion?>
+<BorderPane fx:id="borderPane" fx:controller="main.Controller" xmlns:fx="http://javafx.com/fxml">
+    <top>
+        <HBox spacing="10" alignment="center">
+            <TextField id="directory" fx:id="directory" prefHeight="20" prefWidth="400"/>
+            <Button text="Directory" onAction="#directoryButtonAction"/>
+            <Button text="Search" onAction="#searchButtonAction"/>
+            <Slider fx:id="slider"/>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane>
+            <GridPane fx:id="gridPane">
+
+            </GridPane>
+        </ScrollPane>
+    </center>
+
+    <bottom>
+        <HBox>
+            <ProgressBar fx:id="progressBar"></ProgressBar>
+            <Text id="status" fx:id="status" ></Text>
+        </HBox>
+    </bottom>
+
+</BorderPane>
