@@ -9,9 +9,6 @@ import javafx.stage.Stage;
 
 public class ImageComparerMain extends Application {
 
-    static final int threadnumber = 4;
-
-
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));

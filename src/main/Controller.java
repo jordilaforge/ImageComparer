@@ -5,10 +5,9 @@ import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
-import javafx.scene.Parent;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.Slider;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -17,8 +16,6 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.DirectoryChooser;
-import javafx.stage.Stage;
-
 import java.io.File;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -33,11 +30,13 @@ public class Controller {
         ScanDirectory scanDirectory;
         CopyOnWriteArrayList<CompareItem> sameFilesParallelThread;
 
-        @FXML private Text status;
+        @FXML
+        private Text status;
         @FXML private TextField directory;
         @FXML private BorderPane borderPane;
         @FXML private GridPane gridPane;
         @FXML private ProgressBar progressBar;
+        @FXML private Slider slider;
 
         @FXML protected void directoryButtonAction(ActionEvent event) {
             System.out.println("Directory Pressed");
