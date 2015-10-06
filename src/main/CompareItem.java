@@ -1,6 +1,5 @@
 package main;
 
-import java.awt.*;
 import java.io.File;
 
 /**
@@ -36,9 +35,6 @@ public class CompareItem {
         return similarity;
     }
 
-    public void setSimilarity(int similarity) {
-        this.similarity = similarity;
-    }
 
     private String image1;
     private String image2;

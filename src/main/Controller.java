@@ -12,7 +12,6 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
-import javafx.scene.text.TextAlignment;
 import javafx.stage.DirectoryChooser;
 
 import java.io.File;
@@ -58,7 +57,7 @@ public class Controller {
             directory.setText(selectedDirectory.getAbsolutePath());
             scanDirectory = new ScanDirectory();
             allFiles = scanDirectory.scanDir(selectedDirectory.getAbsolutePath());
-            status.setText("Directory: " + selectedDirectory.getAbsolutePath() + " Number of files: " + allFiles.size()+" Compares: "+scanDirectory.getNumberOfCompares(allFiles.size()));
+            status.setText("Number of files: " + allFiles.size()+" Compares: "+scanDirectory.getNumberOfCompares(allFiles.size()));
         }
     }
 
@@ -70,7 +69,7 @@ public class Controller {
                 sameFilesParallelThread.clear();
                 gridPane.getChildren().clear();
             }
-            status.setText("Searching...");
+            status.setText("Searching for "+similaritySetting+"% similarity...");
             doComparison();
         } else {
             status.setText("No Image Files Found!");
@@ -141,10 +140,10 @@ public class Controller {
                         Text namer = new Text(sameFilesParallelThread.get(i).getImage2Name());
                         vboxPicR.getChildren().addAll(picr, namer);
                         gridPane.add(vboxPicR, 2, i);
-                        status.setText("Finished Scanning! Similar Images Found: " + sameFilesParallelThread.size());
+                        status.setText("Finished Scanning! Similar Images Found (with "+similaritySetting+"%): " + sameFilesParallelThread.size());
                     }
                     if (sameFilesParallelThread.size() == 0) {
-                        status.setText("Finished Scanning! No Similar Images Found!");
+                        status.setText("Finished Scanning! No Similar Images Found (with "+similaritySetting+"%):");
                     }
 
                 }

@@ -16,8 +16,6 @@ public class ScanDirectoryTest {
 
     ScanDirectory scanDirectory;
     ArrayList<PartitionObject> temp;
-    ProgressBar progressBar;
-
 
     private void testPrepare() {
         scanDirectory = new ScanDirectory();
