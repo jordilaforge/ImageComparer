@@ -12,7 +12,7 @@ public class ImageComparerMain extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("gui.fxml"));
-        Scene scene = new Scene(root, 710, 300);
+        Scene scene = new Scene(root, 800, 600);
         primaryStage.setTitle("ImageComparer");
         primaryStage.setScene(scene);
         primaryStage.show();

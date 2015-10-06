@@ -11,7 +11,7 @@
             <TextField id="directory" fx:id="directory" prefHeight="20" prefWidth="400"/>
             <Button text="Directory" onAction="#directoryButtonAction"/>
             <Button text="Search" onAction="#searchButtonAction"/>
-            <Slider id="slider" fx:id="slider"/>
+            <Slider id="slider" fx:id="slider" min="0" max="100" showTickLabels="true" showTickMarks="true" value="100"/>
         </HBox>
     </top>
 

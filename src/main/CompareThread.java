@@ -10,16 +10,18 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class CompareThread implements Runnable{
 
+    private int similaritySetting;
     private int upperBound;
     private int lowerBound;
     ArrayList<File> allFiles;
     CopyOnWriteArrayList<CompareItem> sameFilesParallel;
 
-    public CompareThread(ArrayList<File> allFiles,CopyOnWriteArrayList<CompareItem> sameFilesParallel, int lowerBound, int upperBound) {
+    public CompareThread(ArrayList<File> allFiles,CopyOnWriteArrayList<CompareItem> sameFilesParallel, int lowerBound, int upperBound,int similaritySetting) {
         this.upperBound=upperBound;
         this.lowerBound=lowerBound;
         this.allFiles=allFiles;
         this.sameFilesParallel = sameFilesParallel;
+        this.similaritySetting=similaritySetting;
     }
 
     @Override
@@ -38,7 +40,7 @@ public class CompareThread implements Runnable{
                 if (!(file1.getAbsolutePath().equals(file2.getAbsolutePath()))) {
                     similarity = compareScreenshot.compare(file1.getAbsolutePath(), file2.getAbsolutePath());
                     ++numberOfCompares;
-                    if (similarity == 100) {
+                    if (similarity >= similaritySetting) {
                         CompareItem compareItem = new CompareItem(file1.getAbsolutePath(), file2.getAbsolutePath(), similarity);
                         sameFilesParallel.add(compareItem);
                     }

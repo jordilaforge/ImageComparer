@@ -16,6 +16,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.DirectoryChooser;
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
@@ -26,49 +27,70 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 
 public class Controller {
-        ArrayList<File> allFiles;
-        ScanDirectory scanDirectory;
-        CopyOnWriteArrayList<CompareItem> sameFilesParallelThread;
+    ArrayList<File> allFiles;
+    ScanDirectory scanDirectory;
+    CopyOnWriteArrayList<CompareItem> sameFilesParallelThread;
+    int similaritySetting=100;
 
-        @FXML
-        private Text status;
-        @FXML private TextField directory;
-        @FXML private BorderPane borderPane;
-        @FXML private GridPane gridPane;
-        @FXML private ProgressBar progressBar;
-        @FXML private Slider slider;
+    @FXML
+    private Text status;
+    @FXML
+    private TextField directory;
+    @FXML
+    private BorderPane borderPane;
+    @FXML
+    private GridPane gridPane;
+    @FXML
+    private ProgressBar progressBar;
+    @FXML
+    private Slider slider;
 
-        @FXML protected void directoryButtonAction(ActionEvent event) {
-            System.out.println("Directory Pressed");
-            DirectoryChooser directoryChooser = new DirectoryChooser();
-            File selectedDirectory =
-                    directoryChooser.showDialog(borderPane.getScene().getWindow());
+    @FXML
+    protected void directoryButtonAction(ActionEvent event) {
+        System.out.println("Directory Pressed");
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        File selectedDirectory =
+                directoryChooser.showDialog(borderPane.getScene().getWindow());
 
-            if (selectedDirectory == null) {
-                System.out.println("No Directory Choosen");
+        if (selectedDirectory == null) {
+            System.out.println("No Directory Choosen");
 
-            } else {
-               System.out.println(selectedDirectory.getAbsolutePath());
-                directory.setText(selectedDirectory.getAbsolutePath());
-                scanDirectory = new ScanDirectory();
-                allFiles = scanDirectory.scanDir(selectedDirectory.getAbsolutePath());
-                status.setText("Directory: " + selectedDirectory.getAbsolutePath() + " Number of files: " + allFiles.size());
-            }
+        } else {
+            System.out.println(selectedDirectory.getAbsolutePath());
+            directory.setText(selectedDirectory.getAbsolutePath());
+            scanDirectory = new ScanDirectory();
+            allFiles = scanDirectory.scanDir(selectedDirectory.getAbsolutePath());
+            status.setText("Directory: " + selectedDirectory.getAbsolutePath() + " Number of files: " + allFiles.size()+" Compares: "+scanDirectory.getNumberOfCompares(allFiles.size()));
         }
+    }
 
-        @FXML protected void searchButtonAction(ActionEvent event) {
+    @FXML
+    protected void searchButtonAction(ActionEvent event) {
         System.out.println("Search Pressed");
-            if (allFiles.size() > 0) {
-                if(sameFilesParallelThread!=null){
-                    sameFilesParallelThread.clear();
-                    gridPane.getChildren().clear();
-                }
-                status.setText("Searching...");
-                doComparison();
-            } else {
-                status.setText("No Image Files Found!");
+        if (allFiles.size() > 0) {
+            if (sameFilesParallelThread != null) {
+                sameFilesParallelThread.clear();
+                gridPane.getChildren().clear();
             }
+            status.setText("Searching...");
+            doComparison();
+        } else {
+            status.setText("No Image Files Found!");
         }
+    }
+
+
+    /**
+     * Initializes the controller class. This method is automatically called
+     * after the fxml file has been loaded.
+     */
+    @FXML
+    private void initialize() {
+        // Handle Slider value change events.
+        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
+            similaritySetting=newValue.intValue();
+        });
+    }
 
     public void doComparison() {
 
@@ -76,8 +98,8 @@ public class Controller {
         Task task = new Task<CopyOnWriteArrayList>() {
             @Override
             public CopyOnWriteArrayList call() {
-                CopyOnWriteArrayList cowal = scanDirectory.scanForSameParallelThread();
-                updateProgress(1,1);
+                CopyOnWriteArrayList cowal = scanDirectory.scanForSameParallelThread(similaritySetting);
+                updateProgress(1, 1);
                 return cowal;
 
             }
@@ -121,7 +143,7 @@ public class Controller {
                         gridPane.add(vboxPicR, 2, i);
                         status.setText("Finished Scanning! Similar Images Found: " + sameFilesParallelThread.size());
                     }
-                    if(sameFilesParallelThread.size()==0){
+                    if (sameFilesParallelThread.size() == 0) {
                         status.setText("Finished Scanning! No Similar Images Found!");
                     }
 
