@@ -7,17 +7,35 @@
 
 <BorderPane fx:id="borderPane" fx:controller="main.Controller" xmlns:fx="http://javafx.com/fxml">
     <top>
-        <HBox spacing="10" alignment="center">
-            <TextField id="directory" fx:id="directory" prefHeight="20" prefWidth="400"/>
-            <Button text="Directory" onAction="#directoryButtonAction"/>
-            <Button text="Search" onAction="#searchButtonAction"/>
-            <Slider id="slider" fx:id="slider" min="0" max="100" showTickLabels="true" showTickMarks="true" value="100"/>
-        </HBox>
+        <GridPane alignment="CENTER" hgap="5" vgap="5">
+
+                <Label id="directoryLabel" fx:id="drectoryLabel" text="Directory to look for images:" GridPane.columnIndex="0" GridPane.rowIndex="0">
+
+                </Label>
+                <Label id="directory" fx:id="directory" prefWidth="480"  text="No directory selected" style=" -fx-border-color:black; -fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                <font>
+                    <Font name="Courier" size="14.0"></Font>
+                </font>
+                </Label>
+
+
+                <Label id="directoryButtonLabel" fx:id="directoryButtonLabel" text="Select Dir:" alignment="center" GridPane.columnIndex="1" GridPane.rowIndex="0"></Label>
+                <Button text="Directory" onAction="#directoryButtonAction" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+
+                <Label id="searchButtonLabel" fx:id="searchButtonLabel" text="Search:" GridPane.columnIndex="2" GridPane.rowIndex="0"></Label>
+                <Button text="Search" onAction="#searchButtonAction" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+
+
+                <Label id="sliderLabe" fx:id="sliderLabel" text="Similarity in %:" GridPane.columnIndex="3" GridPane.rowIndex="0"></Label>
+                <Slider id="slider" fx:id="slider" min="0" max="100" showTickLabels="true" showTickMarks="true" value="100" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+
+        </GridPane>
     </top>
 
     <center>
-        <ScrollPane>
-            <GridPane id="gridPane" fx:id="gridPane">
+        <ScrollPane fitToHeight="true" fitToWidth="true">
+            <GridPane id="gridPane" fx:id="gridPane" alignment="TOP_CENTER" hgap="10" vgap="10">
 
             </GridPane>
         </ScrollPane>
@@ -25,7 +43,7 @@
 
     <bottom>
         <HBox>
-            <ProgressBar id="progrssBar" fx:id="progressBar"/>
+            <ProgressBar id="progressBar" fx:id="progressBar" prefWidth="200"/>
             <Text id="status" fx:id="status"/>
         </HBox>
     </bottom>

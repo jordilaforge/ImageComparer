@@ -3,18 +3,16 @@ package main;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.geometry.Pos;
-import javafx.scene.control.ProgressBar;
-import javafx.scene.control.Slider;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 import javafx.stage.DirectoryChooser;
 
 import java.io.File;
@@ -35,7 +33,7 @@ public class Controller {
     @FXML
     private Text status;
     @FXML
-    private TextField directory;
+    private Label directory;
     @FXML
     private BorderPane borderPane;
     @FXML
@@ -92,14 +90,16 @@ public class Controller {
         });
     }
 
+    /**
+     * Does the actual compare and shows result
+     */
     public void doComparison() {
 
 
         Task task = new Task<CopyOnWriteArrayList>() {
             @Override
             public CopyOnWriteArrayList call() {
-                CopyOnWriteArrayList cowal = scanDirectory.scanForSameParallelThread(similaritySetting);
-                updateProgress(1, 1);
+                CopyOnWriteArrayList cowal = scanDirectory.scanForSameParallelThread(similaritySetting,progressBar);
                 return cowal;
 
             }
@@ -120,10 +120,10 @@ public class Controller {
                         }
                         ImageView picl = new ImageView();
                         picl.setImage(imagel);
-                        picl.setFitHeight(100);
-                        picl.setFitWidth(100);
+                        picl.setFitHeight(200);
+                        picl.setFitWidth(200);
                         VBox vboxPicL = new VBox();
-                        Text namel = new Text(sameFilesParallelThread.get(i).getImage1().substring(sameFilesParallelThread.get(i).getImage1().lastIndexOf("\\") + 1));
+                        Text namel = new Text(sameFilesParallelThread.get(i).getImage1Name());
                         vboxPicL.getChildren().addAll(picl, namel);
                         gridPane.add(vboxPicL, 0, i);
                         Text similarityName = new Text();
@@ -135,10 +135,10 @@ public class Controller {
                         gridPane.add(vboxSimilarity, 1, i);
                         ImageView picr = new ImageView();
                         picr.setImage(imager);
-                        picr.setFitHeight(100);
-                        picr.setFitWidth(100);
+                        picr.setFitHeight(200);
+                        picr.setFitWidth(200);
                         VBox vboxPicR = new VBox();
-                        Text namer = new Text(sameFilesParallelThread.get(i).getImage2().substring(sameFilesParallelThread.get(i).getImage2().lastIndexOf("\\") + 1));
+                        Text namer = new Text(sameFilesParallelThread.get(i).getImage2Name());
                         vboxPicR.getChildren().addAll(picr, namer);
                         gridPane.add(vboxPicR, 2, i);
                         status.setText("Finished Scanning! Similar Images Found: " + sameFilesParallelThread.size());
@@ -150,7 +150,6 @@ public class Controller {
                 }
 
         );
-        progressBar.progressProperty().bind(task.progressProperty());
         new Thread(task).start();
         System.out.println("Finished");
     }
