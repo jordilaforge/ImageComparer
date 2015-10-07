@@ -1,14 +1,10 @@
 package main;
 
-import javafx.application.Platform;
-import javafx.scene.control.ProgressBar;
-
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.concurrent.*;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 /**
@@ -18,13 +14,12 @@ import java.util.stream.Collectors;
 public class ScanDirectory {
 
 
+
     private ArrayList<File> allFiles;
     private ArrayList<CompareItem> sameFiles;
     private CopyOnWriteArrayList<CompareItem> sameFilesParallel;
     private CopyOnWriteArrayList<CompareItem> sameFilesParallelThread;
     private int threadnumber = 1;
-    public static AtomicInteger numberOfCompares;
-    public static int totalNumberOfCompare;
 
     public ScanDirectory() {
         allFiles = new ArrayList<>();
@@ -32,8 +27,6 @@ public class ScanDirectory {
         sameFilesParallel = new CopyOnWriteArrayList<>();
         sameFilesParallelThread = new CopyOnWriteArrayList<>();
         threadnumber = Runtime.getRuntime().availableProcessors();
-        numberOfCompares = new AtomicInteger(0);
-        totalNumberOfCompare=0;
     }
 
     /**
@@ -44,7 +37,7 @@ public class ScanDirectory {
     public ArrayList<File> scanDir(String path) {
         addTree(new File(path), allFiles);
         System.out.println("Scanning: " + new File(path).getAbsolutePath());
-        totalNumberOfCompare=getNumberOfCompares(allFiles.size());
+        Controller.totalNumberOfCompare=getNumberOfCompares(allFiles.size());
         return allFiles;
     }
 
@@ -120,30 +113,23 @@ public class ScanDirectory {
      * scans all files for given similarity (multithreaded threads)
      * @return CopyOnWriteArrayList of similar images
      * @param similaritySetting wanted similarity in percentage
-     * @param progressBar to be updated while method is running can be null
+     * @param updater to be updated while method is running can be null
      */
-    public CopyOnWriteArrayList<CompareItem> scanForSameParallelThread(int similaritySetting, ProgressBar progressBar) {
+    public CopyOnWriteArrayList<CompareItem> scanForSameParallelThread(int similaritySetting, Updater updater) {
         System.out.println("Number of available threads: "+threadnumber);
-        ScanDirectory.numberOfCompares.set(0);
+        Controller.numberOfCompares.set(0);
 
         ExecutorService executor = Executors.newFixedThreadPool(threadnumber);
         List<File> allFilesSorted = allFiles.stream().parallel().sorted((file1, file2) -> (int) (file1.length() - file2.length())).collect(Collectors.toList());
         ArrayList<PartitionObject> partitions = partition(allFilesSorted.size());
         for (PartitionObject partition : partitions) {
-            Runnable worker = new CompareThread((ArrayList<File>) allFilesSorted, sameFilesParallelThread, partition.getLower(), partition.getUpper(),similaritySetting,progressBar);
+            Runnable worker = new CompareThread((ArrayList<File>) allFilesSorted, sameFilesParallelThread, partition.getLower(), partition.getUpper(), similaritySetting, updater);
             executor.execute(worker);
         }
         executor.shutdown();
         while (!executor.isTerminated()) {
         }
-        if(progressBar!=null) {
-            Platform.runLater(new Runnable() {
-                @Override
-                public void run() {
-                    progressBar.setProgress(1.0);
-                }
-            });
-        }
+
         System.out.println("Finished all threads");
         return sameFilesParallelThread;
     }

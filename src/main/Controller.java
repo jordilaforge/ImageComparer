@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.DirectoryChooser;
 
@@ -18,6 +19,7 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Created by philippsteiner on 05/10/15.
@@ -28,6 +30,8 @@ public class Controller {
     ScanDirectory scanDirectory;
     CopyOnWriteArrayList<CompareItem> sameFilesParallelThread;
     int similaritySetting=100;
+    public static AtomicInteger numberOfCompares = new AtomicInteger(0);
+    public static int totalNumberOfCompare=0;
 
     @FXML
     private Text status;
@@ -95,14 +99,22 @@ public class Controller {
     public void doComparison() {
 
 
+
         Task task = new Task<CopyOnWriteArrayList>() {
             @Override
             public CopyOnWriteArrayList call() {
-                CopyOnWriteArrayList cowal = scanDirectory.scanForSameParallelThread(similaritySetting,progressBar);
+
+                CopyOnWriteArrayList cowal = scanDirectory.scanForSameParallelThread(similaritySetting, new Updater() {
+
+                    @Override
+                    public void update(double progress) {
+                        updateProgress(numberOfCompares.get(), totalNumberOfCompare);
+                    }
+                });
+                updateProgress(1,1);
                 return cowal;
 
             }
-
 
         };
         task.addEventHandler(WorkerStateEvent.WORKER_STATE_SUCCEEDED,
@@ -128,6 +140,7 @@ public class Controller {
                         Text similarityName = new Text();
                         similarityName.setText("Similarity");
                         Text similarity = new Text(String.valueOf(sameFilesParallelThread.get(i).getSimilarity()) + "%");
+                        similarity.setFont(Font.font("Arial", 18));
                         VBox vboxSimilarity = new VBox();
                         vboxSimilarity.getChildren().addAll(similarityName, similarity);
                         vboxSimilarity.setAlignment(Pos.CENTER);
@@ -149,6 +162,7 @@ public class Controller {
                 }
 
         );
+        progressBar.progressProperty().bind(task.progressProperty());
         new Thread(task).start();
         System.out.println("Finished");
     }
