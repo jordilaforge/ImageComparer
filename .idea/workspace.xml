@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b2a0561-506e-4a5a-bf5a-93a7ab54d66a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/Updater.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/CompareThread.java" afterPath="$PROJECT_DIR$/src/main/CompareThread.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/CompareScreenshot.java" afterPath="$PROJECT_DIR$/src/main/CompareScreenshot.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/Controller.java" afterPath="$PROJECT_DIR$/src/main/Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/ScanDirectory.java" afterPath="$PROJECT_DIR$/src/main/ScanDirectory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/gui.fxml" afterPath="$PROJECT_DIR$/src/main/gui.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ImageComparer.iws" />
@@ -41,11 +41,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="gui.fxml" pinned="false" current-in-tab="true">
+      <file leaf-file-name="gui.fxml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/gui.fxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.55785125">
-              <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+            <state vertical-scroll-proportion="-19.655172">
+              <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
               <folding />
             </state>
           </provider>
@@ -54,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="164" column="69" selection-start-line="164" selection-start-column="69" selection-end-line="164" selection-end-column="69" />
+            <state vertical-scroll-proportion="0.59378135">
+              <caret line="138" column="99" selection-start-line="138" selection-start-column="99" selection-end-line="138" selection-end-column="99" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -90,11 +90,11 @@
         <entry file="file://$PROJECT_DIR$/src/main/ScanDirectory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#6460#6461#0" expanded="true" />
-                <element signature="e#6494#6495#0" expanded="true" />
+                <element signature="e#6505#6506#0" expanded="true" />
+                <element signature="e#6539#6540#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -104,7 +104,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/CompareThread.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,8 +115,8 @@
       <file leaf-file-name="CompareScreenshot.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/CompareScreenshot.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="65" column="34" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="34" />
+            <state vertical-scroll-proportion="43.51852">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -151,12 +151,12 @@
         <option value="$PROJECT_DIR$/src/main/ImageComparerMain.java" />
         <option value="$PROJECT_DIR$/test/ScanDirectoryTest.java" />
         <option value="$PROJECT_DIR$/src/main/CompareItem.java" />
-        <option value="$PROJECT_DIR$/src/main/CompareScreenshot.java" />
-        <option value="$PROJECT_DIR$/src/main/gui.fxml" />
         <option value="$PROJECT_DIR$/src/main/Updater.java" />
-        <option value="$PROJECT_DIR$/src/main/Controller.java" />
-        <option value="$PROJECT_DIR$/src/main/ScanDirectory.java" />
         <option value="$PROJECT_DIR$/src/main/CompareThread.java" />
+        <option value="$PROJECT_DIR$/src/main/gui.fxml" />
+        <option value="$PROJECT_DIR$/src/main/ScanDirectory.java" />
+        <option value="$PROJECT_DIR$/src/main/CompareScreenshot.java" />
+        <option value="$PROJECT_DIR$/src/main/Controller.java" />
       </list>
     </option>
   </component>
@@ -667,7 +667,7 @@
       <workItem from="1440763744657" duration="13049000" />
       <workItem from="1443772592771" duration="3582000" />
       <workItem from="1444047368001" duration="9505000" />
-      <workItem from="1444109430255" duration="26949000" />
+      <workItem from="1444109430255" duration="32509000" />
     </task>
     <task id="LOCAL-00001" summary="Added Simple JavaFX GUI still lot to do">
       <created>1440526200816</created>
@@ -735,11 +735,17 @@
       <option name="project" value="LOCAL" />
       <updated>1444139615588</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="update progress new with interface and callable to seperate model from view">
+      <created>1444205506117</created>
+      <option name="number" value="00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1444205506117</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="115875000" />
+    <option name="totallyTimeSpent" value="121435000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -829,7 +835,8 @@
     <MESSAGE value="huge refactoring implemented working slider moved libraries to lib folder" />
     <MESSAGE value="-Refactoring changed layout and improved several methods" />
     <MESSAGE value="minor code refactoring" />
-    <option name="LAST_COMMIT_MESSAGE" value="minor code refactoring" />
+    <MESSAGE value="update progress new with interface and callable to seperate model from view" />
+    <option name="LAST_COMMIT_MESSAGE" value="update progress new with interface and callable to seperate model from view" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -842,16 +849,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/ImageComparerMain.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/PartitionObject.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -866,8 +863,8 @@
           <caret line="109" column="21" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6460#6461#0" expanded="true" />
-            <element signature="e#6494#6495#0" expanded="true" />
+            <element signature="e#6505#6506#0" expanded="true" />
+            <element signature="e#6539#6540#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -901,14 +898,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#277#278#0" expanded="true" />
-            <element signature="e#326#327#0" expanded="true" />
-            <element signature="e#370#371#0" expanded="true" />
-            <element signature="e#406#407#0" expanded="true" />
-            <element signature="e#504#505#0" expanded="true" />
-            <element signature="e#553#554#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -928,8 +918,8 @@
           <caret line="100" column="64" selection-start-line="100" selection-start-column="64" selection-end-line="100" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6460#6461#0" expanded="true" />
-            <element signature="e#6494#6495#0" expanded="true" />
+            <element signature="e#6505#6506#0" expanded="true" />
+            <element signature="e#6539#6540#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -967,8 +957,8 @@
           <caret line="100" column="64" selection-start-line="100" selection-start-column="64" selection-end-line="100" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6460#6461#0" expanded="true" />
-            <element signature="e#6494#6495#0" expanded="true" />
+            <element signature="e#6505#6506#0" expanded="true" />
+            <element signature="e#6539#6540#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -999,8 +989,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6460#6461#0" expanded="true" />
-            <element signature="e#6494#6495#0" expanded="true" />
+            <element signature="e#6505#6506#0" expanded="true" />
+            <element signature="e#6539#6540#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1046,8 +1036,8 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6460#6461#0" expanded="true" />
-            <element signature="e#6494#6495#0" expanded="true" />
+            <element signature="e#6505#6506#0" expanded="true" />
+            <element signature="e#6539#6540#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1085,8 +1075,8 @@
           <caret line="107" column="86" selection-start-line="107" selection-start-column="86" selection-end-line="107" selection-end-column="86" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6460#6461#0" expanded="true" />
-            <element signature="e#6494#6495#0" expanded="true" />
+            <element signature="e#6505#6506#0" expanded="true" />
+            <element signature="e#6539#6540#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1124,8 +1114,8 @@
           <caret line="98" column="94" selection-start-line="98" selection-start-column="94" selection-end-line="98" selection-end-column="94" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#6460#6461#0" expanded="true" />
-            <element signature="e#6494#6495#0" expanded="true" />
+            <element signature="e#6505#6506#0" expanded="true" />
+            <element signature="e#6539#6540#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1214,21 +1204,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/CompareItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding>
-            <element signature="e#277#278#0" expanded="true" />
-            <element signature="e#326#327#0" expanded="true" />
-            <element signature="e#370#371#0" expanded="true" />
-            <element signature="e#406#407#0" expanded="true" />
-            <element signature="e#504#505#0" expanded="true" />
-            <element signature="e#553#554#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/src.zip!/java/util/concurrent/Callable.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1242,36 +1217,6 @@
         <state vertical-scroll-proportion="1.7602808">
           <caret line="126" column="64" selection-start-line="126" selection-start-column="64" selection-end-line="126" selection-end-column="64" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/CompareScreenshot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="65" column="34" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/CompareThread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/ScanDirectory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#6460#6461#0" expanded="true" />
-            <element signature="e#6494#6495#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1291,16 +1236,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="164" column="69" selection-start-line="164" selection-start-column="69" selection-end-line="164" selection-end-column="69" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/ImageComparerMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1313,13 +1248,69 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/gui.fxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.55785125">
-          <caret line="36" column="21" selection-start-line="36" selection-start-column="21" selection-end-line="36" selection-end-column="21" />
+        <state vertical-scroll-proportion="-19.655172">
+          <caret line="38" column="70" selection-start-line="38" selection-start-column="70" selection-end-line="38" selection-end-column="70" />
           <folding />
         </state>
       </provider>
       <provider editor-type-id="JavaFX-Scene-Builder">
         <state />
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_60.jdk/Contents/Home/src.zip!/com/sun/imageio/plugins/jpeg/JPEGImageReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.332999">
+          <caret line="1058" column="0" selection-start-line="1058" selection-start-column="0" selection-end-line="1058" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/CompareItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33099297">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/ScanDirectory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="22" column="43" selection-start-line="22" selection-start-column="43" selection-end-line="22" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6505#6506#0" expanded="true" />
+            <element signature="e#6539#6540#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/CompareThread.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/CompareScreenshot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="43.51852">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.59378135">
+          <caret line="138" column="99" selection-start-line="138" selection-start-column="99" selection-end-line="138" selection-end-column="99" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
       </provider>
     </entry>
   </component>

@@ -4,6 +4,7 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
+import java.util.concurrent.locks.Lock;
 
 import javax.imageio.ImageIO;
 
@@ -142,8 +143,10 @@ public class CompareScreenshot {
 		BufferedImage bi = null;
 		try {
 			assert in != null;
+			//schould implement lock sometimes java.util.ConcurrentModificationException
 			bi = ImageIO.read(in);
 			in.close();
+
 		} catch (java.io.IOException io) {
 			io.printStackTrace();
 		}

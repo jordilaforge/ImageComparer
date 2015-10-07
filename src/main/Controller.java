@@ -1,11 +1,15 @@
 package main;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
@@ -17,7 +21,10 @@ import javafx.stage.DirectoryChooser;
 
 import java.io.File;
 import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -29,9 +36,9 @@ public class Controller {
     ArrayList<File> allFiles;
     ScanDirectory scanDirectory;
     CopyOnWriteArrayList<CompareItem> sameFilesParallelThread;
-    int similaritySetting=100;
+    int similaritySetting = 100;
     public static AtomicInteger numberOfCompares = new AtomicInteger(0);
-    public static int totalNumberOfCompare=0;
+    public static int totalNumberOfCompare = 0;
 
     @FXML
     private Text status;
@@ -39,8 +46,17 @@ public class Controller {
     private Label directory;
     @FXML
     private BorderPane borderPane;
+
     @FXML
-    private GridPane gridPane;
+    private TableView<CompareItem> tableView;
+    @FXML
+    private TableColumn<CompareItem, String> image1;
+    @FXML
+    private TableColumn<CompareItem, Integer> similarity;
+    @FXML
+    private TableColumn<CompareItem, String> image2;
+
+
     @FXML
     private ProgressBar progressBar;
     @FXML
@@ -61,7 +77,7 @@ public class Controller {
             directory.setText(selectedDirectory.getAbsolutePath());
             scanDirectory = new ScanDirectory();
             allFiles = scanDirectory.scanDir(selectedDirectory.getAbsolutePath());
-            status.setText("Number of files: " + allFiles.size()+" Compares: "+scanDirectory.getNumberOfCompares(allFiles.size()));
+            status.setText("Number of files: " + allFiles.size() + " Compares: " + scanDirectory.getNumberOfCompares(allFiles.size()));
         }
     }
 
@@ -71,9 +87,9 @@ public class Controller {
         if (allFiles.size() > 0) {
             if (sameFilesParallelThread != null) {
                 sameFilesParallelThread.clear();
-                gridPane.getChildren().clear();
+                tableView.getItems().clear();
             }
-            status.setText("Searching for "+similaritySetting+"% similarity...");
+            status.setText("Searching for " + similaritySetting + "% similarity...");
             doComparison();
         } else {
             status.setText("No Image Files Found!");
@@ -89,7 +105,7 @@ public class Controller {
     private void initialize() {
         // Handle Slider value change events.
         slider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            similaritySetting=newValue.intValue();
+            similaritySetting = newValue.intValue();
         });
     }
 
@@ -97,7 +113,6 @@ public class Controller {
      * Does the actual compare and shows result
      */
     public void doComparison() {
-
 
 
         Task task = new Task<CopyOnWriteArrayList>() {
@@ -111,7 +126,7 @@ public class Controller {
                         updateProgress(numberOfCompares.get(), totalNumberOfCompare);
                     }
                 });
-                updateProgress(1,1);
+                updateProgress(1, 1);
                 return cowal;
 
             }
@@ -120,43 +135,16 @@ public class Controller {
         task.addEventHandler(WorkerStateEvent.WORKER_STATE_SUCCEEDED,
                 t -> {
                     sameFilesParallelThread = (CopyOnWriteArrayList<CompareItem>) task.getValue();
-                    for (int i = 0; i < sameFilesParallelThread.size(); ++i) {
-                        Image imagel = null;
-                        Image imager = null;
-                        try {
-                            imagel = new Image(String.valueOf(new File(sameFilesParallelThread.get(i).getImage1()).toURI().toURL()));
-                            imager = new Image(String.valueOf(new File(sameFilesParallelThread.get(i).getImage2()).toURI().toURL()));
-                        } catch (MalformedURLException e) {
-                            e.printStackTrace();
-                        }
-                        ImageView picl = new ImageView();
-                        picl.setImage(imagel);
-                        picl.setFitHeight(200);
-                        picl.setFitWidth(200);
-                        VBox vboxPicL = new VBox();
-                        Text namel = new Text(sameFilesParallelThread.get(i).getImage1Name());
-                        vboxPicL.getChildren().addAll(picl, namel);
-                        gridPane.add(vboxPicL, 0, i);
-                        Text similarityName = new Text();
-                        similarityName.setText("Similarity");
-                        Text similarity = new Text(String.valueOf(sameFilesParallelThread.get(i).getSimilarity()) + "%");
-                        similarity.setFont(Font.font("Arial", 18));
-                        VBox vboxSimilarity = new VBox();
-                        vboxSimilarity.getChildren().addAll(similarityName, similarity);
-                        vboxSimilarity.setAlignment(Pos.CENTER);
-                        gridPane.add(vboxSimilarity, 1, i);
-                        ImageView picr = new ImageView();
-                        picr.setImage(imager);
-                        picr.setFitHeight(200);
-                        picr.setFitWidth(200);
-                        VBox vboxPicR = new VBox();
-                        Text namer = new Text(sameFilesParallelThread.get(i).getImage2Name());
-                        vboxPicR.getChildren().addAll(picr, namer);
-                        gridPane.add(vboxPicR, 2, i);
-                        status.setText("Finished Scanning! Similar Images Found (with "+similaritySetting+"%): " + sameFilesParallelThread.size());
-                    }
+                    image1.setCellValueFactory(new PropertyValueFactory<CompareItem, String>("image1"));
+                    similarity.setCellValueFactory(new PropertyValueFactory<CompareItem, Integer>("similarity"));
+                    image2.setCellValueFactory(new PropertyValueFactory<CompareItem, String>("image2"));
+
+                    tableView.getItems().setAll(FXCollections.observableArrayList(sameFilesParallelThread));
                     if (sameFilesParallelThread.size() == 0) {
-                        status.setText("Finished Scanning! No Similar Images Found (with "+similaritySetting+"%):");
+                        status.setText("Finished Scanning! No Similar Images Found (with " + similaritySetting + "%):");
+                    }
+                    else{
+                        status.setText("Finished Scanning! Similar Images Found (with "+similaritySetting+"%): " + sameFilesParallelThread.size());
                     }
 
                 }
@@ -166,5 +154,6 @@ public class Controller {
         new Thread(task).start();
         System.out.println("Finished");
     }
+
 }
 

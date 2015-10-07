@@ -33,11 +33,13 @@
     </top>
 
     <center>
-        <ScrollPane fitToHeight="true" fitToWidth="true">
-            <GridPane id="gridPane" fx:id="gridPane" alignment="TOP_CENTER" hgap="10" vgap="10">
-
-            </GridPane>
-        </ScrollPane>
+        <TableView fx:id="tableView">
+            <columns>
+                <TableColumn text="Image1" fx:id="image1" minWidth="350"/>
+                <TableColumn text="Image2" fx:id="image2" minWidth="350"/>
+                <TableColumn text="Similarity" fx:id="similarity" minWidth="20"/>
+            </columns>
+        </TableView>
     </center>
 
     <bottom>

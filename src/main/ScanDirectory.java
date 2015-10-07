@@ -20,6 +20,7 @@ public class ScanDirectory {
     private CopyOnWriteArrayList<CompareItem> sameFilesParallel;
     private CopyOnWriteArrayList<CompareItem> sameFilesParallelThread;
     private int threadnumber = 1;
+    static Object threadLock = new Object();
 
     public ScanDirectory() {
         allFiles = new ArrayList<>();
