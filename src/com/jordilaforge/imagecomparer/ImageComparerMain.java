@@ -1,4 +1,4 @@
-package main;
+package com.jordilaforge.imagecomparer;
 
 
 import javafx.application.Application;
@@ -22,9 +22,6 @@ public class ImageComparerMain extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-
-
 
 
 }

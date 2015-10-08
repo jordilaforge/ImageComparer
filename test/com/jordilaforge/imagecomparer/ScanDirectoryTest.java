@@ -1,60 +1,64 @@
-import javafx.scene.control.ProgressBar;
-import main.CompareItem;
-import main.PartitionObject;
-import main.ScanDirectory;
+package com.jordilaforge.imagecomparer;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.Mockito;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.concurrent.CopyOnWriteArrayList;
 
-/**
- * Created by philipp on 20.06.2015.
- */
+import static org.mockito.Mockito.atLeastOnce;
+import static org.mockito.Mockito.verify;
+
+
 public class ScanDirectoryTest {
 
     ScanDirectory scanDirectory;
     ArrayList<PartitionObject> temp;
+    ObservableList<CompareItem> sameFiles;
 
     private void testPrepare() {
         scanDirectory = new ScanDirectory();
-        //progressBar = new ProgressBar(0.0);
+        sameFiles = FXCollections.observableArrayList();
     }
 
 
     @Test
     public void canDirTest() {
         testPrepare();
-        ArrayList<File> allFiles= scanDirectory.scanDir("./bin/resources");
-        Assert.assertEquals(allFiles.size(),21);
+        ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
+        Assert.assertEquals(allFiles.size(), 21);
     }
 
     @Test
     public void scanForSameTest() {
         testPrepare();
-        ArrayList<File> allFiles= scanDirectory.scanDir("./bin/resources");
-        Assert.assertEquals(allFiles.size(),21);
-        ArrayList<CompareItem> sameFiles = scanDirectory.scanForSame(100);
-        Assert.assertEquals(sameFiles.size(),4);
+        ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
+        Assert.assertEquals(allFiles.size(), 21);
+        scanDirectory.scanForSame(allFiles, sameFiles, 100);
+        Assert.assertEquals(sameFiles.size(), 4);
     }
 
     @Test
-         public void scanForSameParallelTest() {
+    public void scanForSameParallelTest() {
         testPrepare();
-        ArrayList<File> allFiles= scanDirectory.scanDir("./bin/resources");
-        Assert.assertEquals(allFiles.size(),21);
-        CopyOnWriteArrayList<CompareItem> sameFiles = scanDirectory.scanForSameParallel(100);
-        Assert.assertEquals(sameFiles.size(),4);
+        ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
+        Assert.assertEquals(allFiles.size(), 21);
+        scanDirectory.scanForSameParallel(allFiles, sameFiles, 100);
+        Assert.assertEquals(sameFiles.size(), 4);
     }
 
     @Test
     public void scanForSameParallelThreadTest() {
         testPrepare();
-        ArrayList<File> allFiles= scanDirectory.scanDir("./bin/resources");
-        Assert.assertEquals(allFiles.size(),21);
-        CopyOnWriteArrayList<CompareItem> sameFiles = scanDirectory.scanForSameParallelThread(100, null);
-        Assert.assertEquals(sameFiles.size(),4);
+        ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
+        Assert.assertEquals(allFiles.size(), 21);
+        Updater updaterMock = Mockito.mock(Updater.class);
+        scanDirectory.scanForSameParallelThread(allFiles, sameFiles, 100, updaterMock);
+        verify(updaterMock, atLeastOnce()).update();
+        Assert.assertEquals(sameFiles.size(), 4);
     }
 
 
@@ -72,8 +76,6 @@ public class ScanDirectoryTest {
         Assert.assertEquals(15, temp.get(3).getLower());
         Assert.assertEquals(19, temp.get(3).getUpper());
     }
-
-
 
 
     @Test
@@ -122,12 +124,12 @@ public class ScanDirectoryTest {
     }
 
     @Test
-    public void numberOfCompareTest(){
+    public void numberOfCompareTest() {
         testPrepare();
-        Assert.assertEquals(scanDirectory.getNumberOfCompares(8),28);
-        Assert.assertEquals(scanDirectory.getNumberOfCompares(80),3160);
-        Assert.assertEquals(scanDirectory.getNumberOfCompares(400),79800);
-        Assert.assertEquals(scanDirectory.getNumberOfCompares(0),0);
-        Assert.assertEquals(scanDirectory.getNumberOfCompares(1),0);
+        Assert.assertEquals(scanDirectory.getNumberOfCompares(8), 28);
+        Assert.assertEquals(scanDirectory.getNumberOfCompares(80), 3160);
+        Assert.assertEquals(scanDirectory.getNumberOfCompares(400), 79800);
+        Assert.assertEquals(scanDirectory.getNumberOfCompares(0), 0);
+        Assert.assertEquals(scanDirectory.getNumberOfCompares(1), 0);
     }
 }

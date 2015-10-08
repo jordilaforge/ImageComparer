@@ -19,5 +19,6 @@
         <jarDirectory url="file://$MODULE_DIR$/lib" recursive="false" />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="org.mockito:mockito-all:1.10.19" level="project" />
   </component>
 </module>

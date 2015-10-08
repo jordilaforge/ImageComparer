@@ -1,10 +1,10 @@
-package main;
+package com.jordilaforge.imagecomparer;
 
 
+import javafx.collections.ObservableList;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
  * Created by philipp on 16.06.15.
@@ -12,18 +12,18 @@ import java.util.concurrent.CopyOnWriteArrayList;
  */
 public class CompareThread implements Runnable {
 
-    private int similaritySetting;
-    private int upperBound;
-    private int lowerBound;
-    ArrayList<File> allFiles;
-    CopyOnWriteArrayList<CompareItem> sameFilesParallel;
-    private Updater updater;
+    private final int similaritySetting;
+    private final int upperBound;
+    private final int lowerBound;
+    private final ArrayList<File> allFiles;
+    private final ObservableList<CompareItem> sameFiles;
+    private final Updater updater;
 
-    public CompareThread(ArrayList<File> allFiles, CopyOnWriteArrayList<CompareItem> sameFilesParallel, int lowerBound, int upperBound, int similaritySetting, Updater updater) {
+    public CompareThread(ArrayList<File> allFiles, ObservableList<CompareItem> sameFiles, int lowerBound, int upperBound, int similaritySetting, Updater updater) {
         this.upperBound = upperBound;
         this.lowerBound = lowerBound;
         this.allFiles = allFiles;
-        this.sameFilesParallel = sameFilesParallel;
+        this.sameFiles = sameFiles;
         this.similaritySetting = similaritySetting;
         this.updater = updater;
     }
@@ -48,12 +48,12 @@ public class CompareThread implements Runnable {
                     Controller.numberOfCompares.addAndGet(1);
                     if (similarity >= similaritySetting) {
                         CompareItem compareItem = new CompareItem(file1.getAbsolutePath(), file2.getAbsolutePath(), similarity);
-                        sameFilesParallel.add(compareItem);
+                        sameFiles.add(compareItem);
                     }
 
                 }
-                if ((i+j) % 10 == 0) {
-                    updater.update(Controller.numberOfCompares.get());
+                if ((i + j) % 10 == 0) {
+                    updater.update();
                 }
 
             }

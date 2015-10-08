@@ -1,10 +1,14 @@
-package main;
+package com.jordilaforge.imagecomparer;
+
+import javafx.collections.ObservableList;
 
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 /**
@@ -14,44 +18,37 @@ import java.util.stream.Collectors;
 public class ScanDirectory {
 
 
-
-    private ArrayList<File> allFiles;
-    private ArrayList<CompareItem> sameFiles;
-    private CopyOnWriteArrayList<CompareItem> sameFilesParallel;
-    private CopyOnWriteArrayList<CompareItem> sameFilesParallelThread;
     private int threadnumber = 1;
-    static Object threadLock = new Object();
 
     public ScanDirectory() {
-        allFiles = new ArrayList<>();
-        sameFiles = new ArrayList<>();
-        sameFilesParallel = new CopyOnWriteArrayList<>();
-        sameFilesParallelThread = new CopyOnWriteArrayList<>();
         threadnumber = Runtime.getRuntime().availableProcessors();
     }
 
     /**
      * scans all files in a directory
+     *
      * @param path of directory
      * @return ArrayList of all Files in directory
      */
     public ArrayList<File> scanDir(String path) {
+        ArrayList<File> allFiles = new ArrayList<>();
         addTree(new File(path), allFiles);
         System.out.println("Scanning: " + new File(path).getAbsolutePath());
-        Controller.totalNumberOfCompare=getNumberOfCompares(allFiles.size());
+        Controller.totalNumberOfCompare = getNumberOfCompares(allFiles.size());
         return allFiles;
     }
 
     /**
      * helper method for scanning childs in a directory
+     *
      * @param file path of directory
-     * @param all all files
+     * @param all  all files
      */
     private void addTree(File file, Collection<File> all) {
         File[] children = file.listFiles();
         if (children != null) {
             for (File child : children) {
-                if (child.getName().toLowerCase().endsWith(".png")||child.getName().toLowerCase().endsWith(".jpg")||child.getName().toLowerCase().endsWith(".jpeg")) {
+                if (child.getName().toLowerCase().endsWith(".png") || child.getName().toLowerCase().endsWith(".jpg") || child.getName().toLowerCase().endsWith(".jpeg")) {
                     all.add(child);
                 }
                 addTree(child, all);
@@ -62,10 +59,10 @@ public class ScanDirectory {
 
     /**
      * scans all files for given similarity (single thread)
-     * @return ArrayList of similar images
+     *
      * @param similaritySetting wanted similarity in percentage
      */
-    public ArrayList<CompareItem> scanForSame(int similaritySetting) {
+    public void scanForSame(ArrayList<File> allFiles, ObservableList<CompareItem> sameFiles, int similaritySetting) {
         CompareScreenshot compareScreenshot = new CompareScreenshot();
         int numberOfCompares = 0;
         for (int i = 0; i < allFiles.size() - 1; i++) {
@@ -84,15 +81,14 @@ public class ScanDirectory {
             }
         }
         System.out.println("numberOfCompares" + numberOfCompares);
-        return sameFiles;
     }
 
     /**
      * scans all files for given similarity (multithreaded streams)
-     * @return CopyOnWriteArrayList of similar images
+     *
      * @param similaritySetting wanted similarity in percentage
      */
-    public CopyOnWriteArrayList<CompareItem> scanForSameParallel(int similaritySetting) {
+    public void scanForSameParallel(ArrayList<File> allFiles, ObservableList<CompareItem> sameFiles, int similaritySetting) {
         CompareScreenshot compareScreenshot = new CompareScreenshot();
         allFiles.stream().parallel().forEach(file1 -> allFiles.stream().parallel().forEach(file2 -> {
                     int similarity = 0;
@@ -100,48 +96,53 @@ public class ScanDirectory {
                         similarity = compareScreenshot.compare(file1.getAbsolutePath(), file2.getAbsolutePath());
                         if (similarity >= similaritySetting) {
                             CompareItem compareItem = new CompareItem(file1.getAbsolutePath(), file2.getAbsolutePath(), similarity);
-                            if (!(sameFilesParallel.contains(compareItem))) {
-                                sameFilesParallel.add(compareItem);
+                            if (!(sameFiles.contains(compareItem))) {
+                                sameFiles.add(compareItem);
                             }
                         }
                     }
                 }
         ));
-        return sameFilesParallel;
     }
 
     /**
      * scans all files for given similarity (multithreaded threads)
-     * @return CopyOnWriteArrayList of similar images
+     *
+     * @param allFiles          all images in the directory
+     * @param sameFiles         images with specified similarity
      * @param similaritySetting wanted similarity in percentage
-     * @param updater to be updated while method is running can be null
+     * @param updater           to be updated while method is running can be null
      */
-    public CopyOnWriteArrayList<CompareItem> scanForSameParallelThread(int similaritySetting, Updater updater) {
-        System.out.println("Number of available threads: "+threadnumber);
+    public void scanForSameParallelThread(ArrayList<File> allFiles, ObservableList<CompareItem> sameFiles, int similaritySetting, Updater updater) {
+        System.out.println("Number of available threads: " + threadnumber);
         Controller.numberOfCompares.set(0);
 
         ExecutorService executor = Executors.newFixedThreadPool(threadnumber);
         List<File> allFilesSorted = allFiles.stream().parallel().sorted((file1, file2) -> (int) (file1.length() - file2.length())).collect(Collectors.toList());
         ArrayList<PartitionObject> partitions = partition(allFilesSorted.size());
         for (PartitionObject partition : partitions) {
-            Runnable worker = new CompareThread((ArrayList<File>) allFilesSorted, sameFilesParallelThread, partition.getLower(), partition.getUpper(), similaritySetting, updater);
+            Runnable worker = new CompareThread((ArrayList<File>) allFilesSorted, sameFiles, partition.getLower(), partition.getUpper(), similaritySetting, updater);
             executor.execute(worker);
         }
         executor.shutdown();
-        while (!executor.isTerminated()) {
+        try {
+            executor.awaitTermination(Integer.MAX_VALUE, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
 
+
         System.out.println("Finished all threads");
-        return sameFilesParallelThread;
     }
 
     /**
      * creates equaly sized partitions for given elements
+     *
      * @param size number of elements
      * @return ArrayList of PartitionObject
      */
     public ArrayList<PartitionObject> partition(int size) {
-        ArrayList temp = new ArrayList();
+        ArrayList<PartitionObject> temp = new ArrayList<>();
         int step = size / threadnumber;
         for (int i = 0; i < threadnumber; i++) {
             int start = i * step;
@@ -158,11 +159,12 @@ public class ScanDirectory {
 
     /**
      * Using small gauss to calculate number uf compares
+     *
      * @param n amount of elments
      * @return returns required number of compares
      */
-    public int getNumberOfCompares(int n){
-        return ((n-1)*n)/2;
+    public int getNumberOfCompares(int n) {
+        return ((n - 1) * n) / 2;
     }
 
 }
