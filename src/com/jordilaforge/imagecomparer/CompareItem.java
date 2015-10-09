@@ -5,10 +5,6 @@ import javafx.beans.property.SimpleStringProperty;
 
 import java.io.File;
 
-/**
- * Created by philipp on 16.06.15.
- * CompareItem is a object with two images as there URL and der similarity
- */
 public class CompareItem {
 
 

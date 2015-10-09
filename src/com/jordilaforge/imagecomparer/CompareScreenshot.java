@@ -16,7 +16,7 @@ public class CompareScreenshot {
      * 0 = only exactly same color of pixel
      * more than 0 = kind of the same color
      */
-    private final int threshold = 0;
+    public final int threshold = 0;
 
     /**
      * Method to calculate similarity of two Files(JPG/PNG) returns percentage of similarity
@@ -27,6 +27,7 @@ public class CompareScreenshot {
      * @param file2 image2 for comparison
      * @return percentage of similarity between image1 and image2
      */
+    @SuppressWarnings({"unused", "UnusedAssignment"})
     public int compare(String file1, String file2) {
         long startTime = System.currentTimeMillis();
         checkPreconditions(file1, file2);

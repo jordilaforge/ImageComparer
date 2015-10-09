@@ -6,10 +6,7 @@ import javafx.collections.ObservableList;
 import java.io.File;
 import java.util.ArrayList;
 
-/**
- * Created by philipp on 16.06.15.
- * class to handle more than one thread
- */
+
 public class CompareThread implements Runnable {
 
     private final int similaritySetting;

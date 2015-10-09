@@ -53,14 +53,14 @@ public class Controller {
                 directoryChooser.showDialog(borderPane.getScene().getWindow());
         searchButton.setDisable(false);
         if (selectedDirectory == null) {
-            System.out.println("No Directory Choosen");
+            System.out.println("No directory chosen");
 
         } else {
             System.out.println(selectedDirectory.getAbsolutePath());
             directory.setText(selectedDirectory.getAbsolutePath());
             scanDirectory = new ScanDirectory();
             allFiles = scanDirectory.scanDir(selectedDirectory.getAbsolutePath());
-            status.setText("Number of files: " + allFiles.size() + " Compares: " + scanDirectory.getNumberOfCompares(allFiles.size()));
+            status.setText("Number of files: " + allFiles.size() + " compares: " + scanDirectory.getNumberOfCompares(allFiles.size()));
         }
     }
 
@@ -86,6 +86,7 @@ public class Controller {
      * after the fxml file has been loaded.
      */
     @FXML
+    @SuppressWarnings("unused")
     private void initialize() {
         searchButton.setDisable(true);
         // Handle Slider value change events.
@@ -93,17 +94,11 @@ public class Controller {
             similaritySetting = newValue.intValue();
         });
         similarityCol.setCellValueFactory(cellData -> cellData.getValue().similarityProperty().asObject());
-        similarityCol.setCellFactory(column -> {
-            return new SimilarityTableCell();
-        });
+        similarityCol.setCellFactory(column -> new SimilarityTableCell());
         image1Col.setCellValueFactory(cellData -> cellData.getValue().image1Property());
-        image1Col.setCellFactory(column -> {
-            return new ImageTableCell();
-        });
+        image1Col.setCellFactory(column -> new ImageTableCell());
         image2Col.setCellValueFactory(cellData -> cellData.getValue().image2Property());
-        image2Col.setCellFactory(column -> {
-            return new ImageTableCell();
-        });
+        image2Col.setCellFactory(column -> new ImageTableCell());
         tableView.setItems(sameFiles);
     }
 

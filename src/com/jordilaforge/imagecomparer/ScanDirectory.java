@@ -84,6 +84,7 @@ public class ScanDirectory {
         System.out.println("numberOfCompares: " + numberOfCompares);
     }
 
+
     /**
      * scans all files for given similarity (multithreaded streams)
      *
