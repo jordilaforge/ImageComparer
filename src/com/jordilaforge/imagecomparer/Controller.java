@@ -7,15 +7,11 @@ import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.DirectoryChooser;
 
 import java.io.File;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -98,82 +94,15 @@ public class Controller {
         });
         similarityCol.setCellValueFactory(cellData -> cellData.getValue().similarityProperty().asObject());
         similarityCol.setCellFactory(column -> {
-            return new TableCell<CompareItem, Integer>() {
-                @Override
-                protected void updateItem(Integer item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (item == null || empty) {
-                        setText(null);
-                        setStyle("");
-                        setGraphic(null);
-                    } else {
-                        Label integer = new Label(item.toString());
-                        setGraphic(integer);
-                    }
-                }
-            };
+            return new SimilarityTableCell();
         });
         image1Col.setCellValueFactory(cellData -> cellData.getValue().image1Property());
-        // Custom rendering of table Cell
         image1Col.setCellFactory(column -> {
-            return new TableCell<CompareItem, String>() {
-                @Override
-                protected void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (item == null || empty) {
-                        setText(null);
-                        setStyle("");
-                        setGraphic(null);
-                    } else {
-                        VBox vbox = new VBox();
-                        vbox.setSpacing(10);
-                        Label imageName = new Label(item);
-                        ImageView imageview = new ImageView();
-                        imageview.setFitHeight(50);
-                        imageview.setFitWidth(50);
-                        try {
-                            imageview.setImage(new Image(String.valueOf(new File(item).toURI().toURL())));
-                        } catch (MalformedURLException e) {
-                            e.printStackTrace();
-                        }
-
-                        vbox.getChildren().addAll(imageview, imageName);
-                        //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
-                        setGraphic(vbox);
-                    }
-                }
-            };
+            return new ImageTableCell();
         });
         image2Col.setCellValueFactory(cellData -> cellData.getValue().image2Property());
-        // Custom rendering of the table cell.
         image2Col.setCellFactory(column -> {
-            return new TableCell<CompareItem, String>() {
-                @Override
-                protected void updateItem(String item, boolean empty) {
-                    super.updateItem(item, empty);
-                    if (item == null || empty) {
-                        setText(null);
-                        setStyle("");
-                        setGraphic(null);
-                    } else {
-                        VBox vbox = new VBox();
-                        vbox.setSpacing(10);
-                        Label imageName = new Label(item);
-                        ImageView imageview = new ImageView();
-                        imageview.setFitHeight(50);
-                        imageview.setFitWidth(50);
-                        try {
-                            imageview.setImage(new Image(String.valueOf(new File(item).toURI().toURL())));
-                        } catch (MalformedURLException e) {
-                            e.printStackTrace();
-                        }
-
-                        vbox.getChildren().addAll(imageview, imageName);
-                        //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
-                        setGraphic(vbox);
-                    }
-                }
-            };
+            return new ImageTableCell();
         });
         tableView.setItems(sameFiles);
     }
