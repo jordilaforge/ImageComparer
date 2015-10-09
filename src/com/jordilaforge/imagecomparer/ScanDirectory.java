@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 /**
@@ -84,31 +83,6 @@ public class ScanDirectory {
         System.out.println("numberOfCompares: " + numberOfCompares);
     }
 
-
-    /**
-     * scans all files for given similarity (multithreaded streams)
-     *
-     * @param similaritySetting wanted similarity in percentage
-     */
-    public void scanForSameParallel(ArrayList<File> allFiles, ObservableList<CompareItem> sameFiles, int similaritySetting) {
-        CompareScreenshot compareScreenshot = new CompareScreenshot();
-        AtomicInteger numberOfCompares = new AtomicInteger();
-        allFiles.stream().parallel().forEach(file1 -> allFiles.stream().parallel().forEach(file2 -> {
-                    int similarity = 0;
-                    if (!(file1.getAbsolutePath().equals(file2.getAbsolutePath()))) {
-                        similarity = compareScreenshot.compare(file1.getAbsolutePath(), file2.getAbsolutePath());
-                        numberOfCompares.addAndGet(1);
-                        if (similarity >= similaritySetting) {
-                            CompareItem compareItem = new CompareItem(file1.getAbsolutePath(), file2.getAbsolutePath(), similarity);
-                            if (!(sameFiles.contains(compareItem))) {
-                                sameFiles.add(compareItem);
-                            }
-                        }
-                    }
-                }
-        ));
-        System.out.println("numberOfCompares: " + numberOfCompares.get());
-    }
 
     /**
      * scans all files for given similarity (multithreaded threads)

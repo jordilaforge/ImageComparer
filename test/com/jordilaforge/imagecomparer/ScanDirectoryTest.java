@@ -29,55 +29,43 @@ public class ScanDirectoryTest {
     public void canDirTest() {
         testPrepare();
         ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
-        Assert.assertEquals(allFiles.size(), 21);
+        Assert.assertEquals(21, allFiles.size());
     }
 
     @Test
     public void scanForSameTest() {
         testPrepare();
         ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
-        Assert.assertEquals(allFiles.size(), 21);
+        Assert.assertEquals(21, allFiles.size());
         scanDirectory.scanForSame(allFiles, sameFiles, 100);
-        Assert.assertEquals(sameFiles.size(), 4);
+        Assert.assertEquals(4, sameFiles.size());
     }
 
-    @Test
-    public void scanForSameParallelTest() {
-        testPrepare();
-        ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
-        Assert.assertEquals(allFiles.size(), 21);
-        scanDirectory.scanForSameParallel(allFiles, sameFiles, 100);
-        Assert.assertEquals(sameFiles.size(), 4);
-    }
 
     @Test
     public void scanForSameParallelThreadTest() {
         testPrepare();
         ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
-        Assert.assertEquals(allFiles.size(), 21);
+        Assert.assertEquals(21, allFiles.size());
         Updater updaterMock = Mockito.mock(Updater.class);
         scanDirectory.scanForSameParallelThread(allFiles, sameFiles, 100, updaterMock);
         verify(updaterMock, atLeastOnce()).update();
-        Assert.assertEquals(sameFiles.size(), 4);
+        Assert.assertEquals(4, sameFiles.size());
     }
 
     @Test
     public void speedTest() {
         testPrepare();
         ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
-        Assert.assertEquals(allFiles.size(), 21);
+        Assert.assertEquals(21, allFiles.size());
         long startSingle = System.nanoTime();
         scanDirectory.scanForSame(allFiles, sameFiles, 100);
         long stopSingle = System.nanoTime();
-        long startStreams = System.nanoTime();
-        scanDirectory.scanForSameParallel(allFiles, sameFiles, 100);
-        long stopStreams = System.nanoTime();
         Updater updaterMock = Mockito.mock(Updater.class);
         long startThreads = System.nanoTime();
         scanDirectory.scanForSameParallelThread(allFiles, sameFiles, 100, updaterMock);
         long stopThreads = System.nanoTime();
         System.out.println("Time Single  : " + (double) (stopSingle - startSingle) / 1000000000.0 + " s");
-        System.out.println("Time Streams : " + (double) (stopStreams - startStreams) / 1000000000.0 + " s");
         System.out.println("Time Threads : " + (double) (stopThreads - startThreads) / 1000000000.0 + " s");
     }
 
@@ -146,10 +134,10 @@ public class ScanDirectoryTest {
     @Test
     public void numberOfCompareTest() {
         testPrepare();
-        Assert.assertEquals(scanDirectory.getNumberOfCompares(8), 28);
-        Assert.assertEquals(scanDirectory.getNumberOfCompares(80), 3160);
-        Assert.assertEquals(scanDirectory.getNumberOfCompares(400), 79800);
-        Assert.assertEquals(scanDirectory.getNumberOfCompares(0), 0);
-        Assert.assertEquals(scanDirectory.getNumberOfCompares(1), 0);
+        Assert.assertEquals(28, scanDirectory.getNumberOfCompares(8));
+        Assert.assertEquals(3160, scanDirectory.getNumberOfCompares(80));
+        Assert.assertEquals(79800, scanDirectory.getNumberOfCompares(400));
+        Assert.assertEquals(0, scanDirectory.getNumberOfCompares(0));
+        Assert.assertEquals(0, scanDirectory.getNumberOfCompares(1));
     }
 }

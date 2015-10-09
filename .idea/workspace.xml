@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b2a0561-506e-4a5a-bf5a-93a7ab54d66a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareItem.java" afterPath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareScreenshot.java" afterPath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareScreenshot.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareThread.java" afterPath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Controller.java" afterPath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Controller.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/PartitionObject.java" afterPath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/PartitionObject.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/junit_junit_4_8_1.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/hamcrest-core-1.3.jar" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/junit-4.12.jar" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImageComparer.iml" afterPath="$PROJECT_DIR$/ImageComparer.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java" afterPath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/ScanDirectoryTest.java" afterPath="$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/ScanDirectoryTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/gui.fxml" afterPath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/gui.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -32,26 +32,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5688487">
+            <state vertical-scroll-proportion="0.0">
               <caret line="62" column="70" selection-start-line="62" selection-start-column="70" selection-end-line="62" selection-end-column="70" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2988#3015#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ImageTableCell.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ImageTableCell.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
-              <folding>
-                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -79,23 +67,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScanDirectory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="PartitionObject.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/PartitionObject.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScanDirectoryTest.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/ScanDirectoryTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.5887372">
+              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -149,6 +135,18 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="ScanDirectory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+              <folding>
+                <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
     </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
@@ -186,19 +184,19 @@
         <option value="$PROJECT_DIR$/test/ScanDirectoryTest.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Updater.java" />
         <option value="$PROJECT_DIR$/test/CompareScreenshotTest.java" />
-        <option value="$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/ScanDirectoryTest.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/gui.fxml" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ImageViewTableCell.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ImageComparerMain.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CostumTableCell.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ImageTableCell.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/SimilarityTableCell.java" />
-        <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareScreenshot.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareItem.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareThread.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Controller.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/PartitionObject.java" />
+        <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java" />
+        <option value="$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/ScanDirectoryTest.java" />
       </list>
     </option>
   </component>
@@ -351,20 +349,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageComparer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ImageComparer" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="bin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -377,7 +361,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
@@ -413,7 +397,7 @@
       <recent name="main" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ImageComparerMain">
+  <component name="RunManager" selected="JUnit.ScanDirectoryTest">
     <configuration default="false" name="ImageComparerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -787,10 +771,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.ImageComparerMain" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ScanDirectoryTest.speedTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ScanDirectoryTest.scanForSameParallelThreadTest" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.ScanDirectoryTest" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.ScanDirectoryTest" />
+        <item index="1" class="java.lang.String" itemvalue="Application.ImageComparerMain" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ScanDirectoryTest.speedTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.ScanDirectoryTest.scanForSameParallelThreadTest" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.CompareScreenshotTest" />
       </list>
     </recent_temporary>
@@ -825,7 +809,7 @@
       <workItem from="1443772592771" duration="3582000" />
       <workItem from="1444047368001" duration="9505000" />
       <workItem from="1444109430255" duration="50139000" />
-      <workItem from="1444305680813" duration="17486000" />
+      <workItem from="1444305680813" duration="19930000" />
     </task>
     <task id="LOCAL-00001" summary="Added Simple JavaFX GUI still lot to do">
       <created>1440526200816</created>
@@ -929,11 +913,17 @@
       <option name="project" value="LOCAL" />
       <updated>1444377396339</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="refactoring code supress warnings">
+      <created>1444378476334</created>
+      <option name="number" value="00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1444378476334</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156551000" />
+    <option name="totallyTimeSpent" value="158995000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -955,9 +945,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.26417804" sideWeight="0.5015625" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39692703" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39692703" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.329296" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21382843" sideWeight="0.4984375" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21382843" sideWeight="0.4984375" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16309012" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1029,7 +1019,8 @@
     <MESSAGE value="TableView now working forgot to add setGraphic(null)" />
     <MESSAGE value="Eliminated Warning formated code" />
     <MESSAGE value="Changed inner anonymous class to seperate class remove path from tableView just filename instead" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed inner anonymous class to seperate class remove path from tableView just filename instead" />
+    <MESSAGE value="refactoring code supress warnings" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactoring code supress warnings" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1067,7 +1058,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="100" column="64" selection-start-line="100" selection-start-column="64" selection-end-line="100" selection-end-column="64" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1104,7 +1095,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="100" column="64" selection-start-line="100" selection-start-column="64" selection-end-line="100" selection-end-column="64" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1134,7 +1125,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1179,7 +1170,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1216,7 +1207,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="107" column="86" selection-start-line="107" selection-start-column="86" selection-end-line="107" selection-end-column="86" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1253,7 +1244,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="98" column="94" selection-start-line="98" selection-start-column="94" selection-end-line="98" selection-end-column="94" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -1375,16 +1366,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/ScanDirectoryTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="80" column="104" selection-start-line="80" selection-start-column="104" selection-end-line="80" selection-end-column="104" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/gui.fxml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-12.413794">
@@ -1434,26 +1415,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/CompareScreenshotTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareScreenshot.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1494,12 +1455,40 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5688487">
+        <state vertical-scroll-proportion="0.0">
           <caret line="62" column="70" selection-start-line="62" selection-start-column="70" selection-end-line="62" selection-end-column="70" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2988#3015#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+          <folding>
+            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/CompareScreenshotTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="9" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/ScanDirectoryTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5887372">
+          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1579,7 +1568,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>org.mockito:mockito-all:1.10.19</last-edited>
+          <last-edited>junit:junit:4.8.1</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
