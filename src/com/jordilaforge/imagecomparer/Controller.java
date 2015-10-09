@@ -6,12 +6,18 @@ import javafx.concurrent.Task;
 import javafx.concurrent.WorkerStateEvent;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.text.Text;
 import javafx.stage.DirectoryChooser;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -22,6 +28,7 @@ public class Controller {
     private ArrayList<File> allFiles = new ArrayList<>();
     private ScanDirectory scanDirectory;
     private int similaritySetting = 100;
+
 
     @FXML
     private Button searchButton;
@@ -45,6 +52,9 @@ public class Controller {
     private ProgressBar progressBar;
     @FXML
     private Slider slider;
+
+    Context currentContext = new Context();
+
 
     @SuppressWarnings("UnusedParameters")
     @FXML
@@ -93,6 +103,26 @@ public class Controller {
         slider.valueProperty().addListener((observable, oldValue, newValue) -> {
             similaritySetting = newValue.intValue();
         });
+        //Doubleclick Event on Tableview
+        tableView.setOnMousePressed(event -> {
+            if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
+                CompareItem selectedItem = tableView.getSelectionModel().getSelectedItem();
+                Context.compareItem = selectedItem;
+                Parent root = null;
+                try {
+                    root = FXMLLoader.load(getClass().getResource("DetailGui.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Scene scene = new Scene(root, 600, 400);
+                Stage stage = new Stage();
+                stage.initModality(Modality.WINDOW_MODAL);
+                stage.initOwner(borderPane.getScene().getWindow());
+                stage.setTitle("Detail View");
+                stage.setScene(scene);
+                stage.show();
+            }
+        });
         similarityCol.setCellValueFactory(cellData -> cellData.getValue().similarityProperty().asObject());
         similarityCol.setCellFactory(column -> new SimilarityTableCell());
         image1Col.setCellValueFactory(cellData -> cellData.getValue().image1Property());
@@ -101,6 +131,7 @@ public class Controller {
         image2Col.setCellFactory(column -> new ImageTableCell());
         tableView.setItems(sameFiles);
     }
+
 
     /**
      * Does the actual compare and shows result
@@ -138,6 +169,7 @@ public class Controller {
         new Thread(task).start();
         System.out.println("Finished");
     }
+
 
 }
 

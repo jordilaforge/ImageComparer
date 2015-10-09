@@ -7,6 +7,9 @@ import java.io.File;
 
 public class CompareItem {
 
+    private final SimpleStringProperty image1;
+    private final SimpleStringProperty image2;
+    private final SimpleIntegerProperty similarity;
 
     public String getImage1Name() {
         return new File(image1.get()).getName();
@@ -53,9 +56,11 @@ public class CompareItem {
         this.image1.set(image1);
     }
 
-    private final SimpleStringProperty image1;
-    private final SimpleStringProperty image2;
-    private final SimpleIntegerProperty similarity;
+    public CompareItem() {
+        this.image1 = null;
+        this.image2 = null;
+        this.similarity = null;
+    }
 
     public CompareItem(String image1, String image2, int similarity) {
         this.image1 = new SimpleStringProperty(image1);
