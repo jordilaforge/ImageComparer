@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b2a0561-506e-4a5a-bf5a-93a7ab54d66a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/junit_junit_4_8_1.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/hamcrest-core-1.3.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/lib/junit-4.12.jar" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImageComparer.iml" afterPath="$PROJECT_DIR$/ImageComparer.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java" afterPath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Controller.java" afterPath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Controller.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/ScanDirectoryTest.java" afterPath="$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/ScanDirectoryTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/gui.fxml" afterPath="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/gui.fxml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -32,37 +28,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="gui.fxml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/gui.fxml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-3.689655">
+              <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="JavaFX-Scene-Builder">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="62" column="70" selection-start-line="62" selection-start-column="70" selection-end-line="62" selection-end-column="70" />
+            <state vertical-scroll-proportion="0.71672356">
+              <caret line="132" column="43" selection-start-line="132" selection-start-column="43" selection-end-line="132" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2988#3015#0" expanded="true" />
+                <element signature="e#2911#2938#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimilarityTableCell.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/SimilarityTableCell.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="58" selection-start-line="14" selection-start-column="58" selection-end-line="14" selection-end-column="58" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Updater.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Updater.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -77,11 +64,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScanDirectoryTest.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ScanDirectoryTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/ScanDirectoryTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5887372">
-              <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -127,9 +114,10 @@
         <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareScreenshot.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
+              <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#926#975#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -139,9 +127,21 @@
         <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
+              <caret line="123" column="52" selection-start-line="123" selection-start-column="52" selection-end-line="123" selection-end-column="52" />
               <folding>
-                <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ImageTableCell.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ImageTableCell.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -184,7 +184,6 @@
         <option value="$PROJECT_DIR$/test/ScanDirectoryTest.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Updater.java" />
         <option value="$PROJECT_DIR$/test/CompareScreenshotTest.java" />
-        <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/gui.fxml" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ImageViewTableCell.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ImageComparerMain.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CostumTableCell.java" />
@@ -193,10 +192,11 @@
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareScreenshot.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareItem.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareThread.java" />
-        <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Controller.java" />
         <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/PartitionObject.java" />
-        <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java" />
         <option value="$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/ScanDirectoryTest.java" />
+        <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java" />
+        <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/gui.fxml" />
+        <option value="$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Controller.java" />
       </list>
     </option>
   </component>
@@ -397,7 +397,7 @@
       <recent name="main" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.ScanDirectoryTest">
+  <component name="RunManager" selected="Application.ImageComparerMain">
     <configuration default="false" name="ImageComparerMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -771,9 +771,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ScanDirectoryTest" />
-        <item index="1" class="java.lang.String" itemvalue="Application.ImageComparerMain" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.ScanDirectoryTest.speedTest" />
+        <item index="0" class="java.lang.String" itemvalue="Application.ImageComparerMain" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ScanDirectoryTest.speedTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ScanDirectoryTest" />
         <item index="3" class="java.lang.String" itemvalue="JUnit.ScanDirectoryTest.scanForSameParallelThreadTest" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.CompareScreenshotTest" />
       </list>
@@ -809,7 +809,7 @@
       <workItem from="1443772592771" duration="3582000" />
       <workItem from="1444047368001" duration="9505000" />
       <workItem from="1444109430255" duration="50139000" />
-      <workItem from="1444305680813" duration="19930000" />
+      <workItem from="1444305680813" duration="23165000" />
     </task>
     <task id="LOCAL-00001" summary="Added Simple JavaFX GUI still lot to do">
       <created>1440526200816</created>
@@ -919,11 +919,17 @@
       <option name="project" value="LOCAL" />
       <updated>1444378476334</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="removed scanForSameParalell because calculation is just not working with stream because one cannot alter the foreach loops also deleted test for that method">
+      <created>1444381071852</created>
+      <option name="number" value="00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1444381071852</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="158995000" />
+    <option name="totallyTimeSpent" value="162230000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1020,7 +1026,8 @@
     <MESSAGE value="Eliminated Warning formated code" />
     <MESSAGE value="Changed inner anonymous class to seperate class remove path from tableView just filename instead" />
     <MESSAGE value="refactoring code supress warnings" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactoring code supress warnings" />
+    <MESSAGE value="removed scanForSameParalell because calculation is just not working with stream because one cannot alter the foreach loops also deleted test for that method" />
+    <option name="LAST_COMMIT_MESSAGE" value="removed scanForSameParalell because calculation is just not working with stream because one cannot alter the foreach loops also deleted test for that method" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1058,7 +1065,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="100" column="64" selection-start-line="100" selection-start-column="64" selection-end-line="100" selection-end-column="64" />
           <folding>
-            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1095,7 +1102,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="100" column="64" selection-start-line="100" selection-start-column="64" selection-end-line="100" selection-end-column="64" />
           <folding>
-            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1125,7 +1132,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1170,7 +1177,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1207,7 +1214,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="107" column="86" selection-start-line="107" selection-start-column="86" selection-end-line="107" selection-end-column="86" />
           <folding>
-            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1244,7 +1251,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="98" column="94" selection-start-line="98" selection-start-column="94" selection-end-line="98" selection-end-column="94" />
           <folding>
-            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1366,31 +1373,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/gui.fxml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.413794">
-          <caret line="28" column="39" selection-start-line="28" selection-start-column="39" selection-end-line="28" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="JavaFX-Scene-Builder">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ImageComparerMain.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ImageTableCell.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="28" column="35" selection-start-line="28" selection-start-column="35" selection-end-line="28" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1415,26 +1401,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareScreenshot.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="29" column="19" selection-start-line="29" selection-start-column="19" selection-end-line="29" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareThread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1453,27 +1419,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Controller.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="62" column="70" selection-start-line="62" selection-start-column="70" selection-end-line="62" selection-end-column="70" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2988#3015#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-          <folding>
-            <marker date="1444380971000" expanded="true" signature="48:342" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/CompareScreenshotTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1484,11 +1429,74 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/CompareScreenshot.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#926#975#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ImageTableCell.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="17" selection-start-line="29" selection-start-column="17" selection-end-line="29" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/jordilaforge/imagecomparer/ScanDirectoryTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5887372">
-          <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/ScanDirectory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="123" column="52" selection-start-line="123" selection-start-column="52" selection-end-line="123" selection-end-column="52" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/gui.fxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.689655">
+          <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="JavaFX-Scene-Builder">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/jordilaforge/imagecomparer/Controller.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.71672356">
+          <caret line="132" column="43" selection-start-line="132" selection-start-column="43" selection-end-line="132" selection-end-column="43" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2911#2938#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -22,7 +22,8 @@
 
 
             <Label text="Select Dir:" alignment="center" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
-            <Button text="Directory" onAction="#directoryButtonAction" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Button fx:id="directoryButton" text="Directory" onAction="#directoryButtonAction" GridPane.columnIndex="1"
+                    GridPane.rowIndex="1"/>
 
 
             <Label text="Search:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>

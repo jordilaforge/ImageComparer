@@ -26,6 +26,8 @@ public class Controller {
     @FXML
     private Button searchButton;
     @FXML
+    private Button directoryButton;
+    @FXML
     private Text status;
     @FXML
     private Label directory;
@@ -47,16 +49,11 @@ public class Controller {
     @SuppressWarnings("UnusedParameters")
     @FXML
     protected void directoryButtonAction(ActionEvent event) {
-        System.out.println("Directory Pressed");
         DirectoryChooser directoryChooser = new DirectoryChooser();
         File selectedDirectory =
                 directoryChooser.showDialog(borderPane.getScene().getWindow());
         searchButton.setDisable(false);
-        if (selectedDirectory == null) {
-            System.out.println("No directory chosen");
-
-        } else {
-            System.out.println(selectedDirectory.getAbsolutePath());
+        if (selectedDirectory != null) {
             directory.setText(selectedDirectory.getAbsolutePath());
             scanDirectory = new ScanDirectory();
             allFiles = scanDirectory.scanDir(selectedDirectory.getAbsolutePath());
@@ -67,7 +64,9 @@ public class Controller {
     @SuppressWarnings("UnusedParameters")
     @FXML
     protected void searchButtonAction(ActionEvent event) {
-        System.out.println("Search Pressed");
+        searchButton.setDisable(true);
+        directoryButton.setDisable(true);
+        slider.setDisable(true);
         if (allFiles.size() > 0) {
             if (sameFiles != null) {
                 sameFiles.clear();
@@ -88,6 +87,7 @@ public class Controller {
     @FXML
     @SuppressWarnings("unused")
     private void initialize() {
+        status.setText("No directory chosen");
         searchButton.setDisable(true);
         // Handle Slider value change events.
         slider.valueProperty().addListener((observable, oldValue, newValue) -> {
@@ -128,7 +128,9 @@ public class Controller {
                     } else {
                         status.setText("Finished Scanning! Similar Images Found (with " + similaritySetting + "%): " + sameFiles.size());
                     }
-
+                    searchButton.setDisable(false);
+                    directoryButton.setDisable(false);
+                    slider.setDisable(false);
                 }
 
         );

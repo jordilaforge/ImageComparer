@@ -65,8 +65,11 @@ public class ScanDirectoryTest {
         long startThreads = System.nanoTime();
         scanDirectory.scanForSameParallelThread(allFiles, sameFiles, 100, updaterMock);
         long stopThreads = System.nanoTime();
-        System.out.println("Time Single  : " + (double) (stopSingle - startSingle) / 1000000000.0 + " s");
-        System.out.println("Time Threads : " + (double) (stopThreads - startThreads) / 1000000000.0 + " s");
+        long timeSingle = (stopSingle - startSingle);
+        long timeThreads = (stopThreads - startThreads);
+        System.out.println("Time Single  : " + (double) (timeSingle) / 1000000000.0 + " s");
+        System.out.println("Time Threads : " + (double) (timeThreads) / 1000000000.0 + " s");
+        Assert.assertTrue(timeSingle > timeThreads);
     }
 
 
