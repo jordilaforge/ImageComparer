@@ -101,7 +101,7 @@ public class Controller {
             return new TableCell<CompareItem, Integer>() {
                 @Override
                 protected void updateItem(Integer item, boolean empty) {
-                    super.updateItem(item,empty);
+                    super.updateItem(item, empty);
                     if (item == null || empty) {
                         setText(null);
                         setStyle("");
@@ -131,7 +131,6 @@ public class Controller {
                         ImageView imageview = new ImageView();
                         imageview.setFitHeight(50);
                         imageview.setFitWidth(50);
-                        System.out.println(item);
                         try {
                             imageview.setImage(new Image(String.valueOf(new File(item).toURI().toURL())));
                         } catch (MalformedURLException e) {
@@ -151,7 +150,7 @@ public class Controller {
             return new TableCell<CompareItem, String>() {
                 @Override
                 protected void updateItem(String item, boolean empty) {
-                    super.updateItem(item,empty);
+                    super.updateItem(item, empty);
                     if (item == null || empty) {
                         setText(null);
                         setStyle("");
@@ -163,7 +162,6 @@ public class Controller {
                         ImageView imageview = new ImageView();
                         imageview.setFitHeight(50);
                         imageview.setFitWidth(50);
-                        System.out.println(item);
                         try {
                             imageview.setImage(new Image(String.valueOf(new File(item).toURI().toURL())));
                         } catch (MalformedURLException e) {

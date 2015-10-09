@@ -2,12 +2,10 @@ package com.jordilaforge.imagecomparer;
 
 
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import javafx.stage.WindowEvent;
 
 public class ImageComparerMain extends Application {
 
@@ -18,11 +16,7 @@ public class ImageComparerMain extends Application {
         primaryStage.setTitle("ImageComparer");
         primaryStage.setScene(scene);
         primaryStage.show();
-        primaryStage.setOnCloseRequest(new EventHandler<WindowEvent>() {
-            public void handle(WindowEvent we) {
-                System.exit(1);
-            }
-        });
+        primaryStage.setOnCloseRequest(we -> System.exit(1));
     }
 
 

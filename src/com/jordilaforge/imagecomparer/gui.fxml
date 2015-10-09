@@ -26,7 +26,8 @@
 
 
             <Label text="Search:" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
-            <Button fx:id="searchButton" text="Search" onAction="#searchButtonAction" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+            <Button fx:id="searchButton" text="Search" onAction="#searchButtonAction" GridPane.columnIndex="2"
+                    GridPane.rowIndex="1"/>
 
 
             <Label text="Similarity in %:" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
