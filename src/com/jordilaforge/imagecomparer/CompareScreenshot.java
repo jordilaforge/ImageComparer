@@ -35,7 +35,7 @@ public class CompareScreenshot {
         int similarity = (int) Math.floor(100 * (compareImages(image1, image2)));
         long endTime = System.currentTimeMillis();
         long totalTime = endTime - startTime;
-        System.out.println("Comparing screenshots similarity: "+similarity+"% time: "+ totalTime+"ms");
+        //System.out.println("Comparing screenshots similarity: "+similarity+"% time: "+ totalTime+"ms");
         return similarity;
     }
 
@@ -146,9 +146,10 @@ public class CompareScreenshot {
         BufferedImage bi = null;
         try {
             assert in != null;
-            //schould implement lock sometimes java.util.ConcurrentModificationException
-            bi = ImageIO.read(in);
-            in.close();
+            synchronized (CompareScreenshot.class) {
+                bi = ImageIO.read(in);
+                in.close();
+            }
 
         } catch (java.io.IOException io) {
             io.printStackTrace();

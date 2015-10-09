@@ -48,7 +48,9 @@ public class CompareThread implements Runnable {
                     Controller.numberOfCompares.addAndGet(1);
                     if (similarity >= similaritySetting) {
                         CompareItem compareItem = new CompareItem(file1.getAbsolutePath(), file2.getAbsolutePath(), similarity);
-                        sameFiles.add(compareItem);
+                        synchronized (this) {
+                            sameFiles.add(compareItem);
+                        }
                     }
 
                 }

@@ -61,6 +61,26 @@ public class ScanDirectoryTest {
         Assert.assertEquals(sameFiles.size(), 4);
     }
 
+    @Test
+    public void speedTest() {
+        testPrepare();
+        ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
+        Assert.assertEquals(allFiles.size(), 21);
+        long startSingle = System.nanoTime();
+        scanDirectory.scanForSame(allFiles, sameFiles, 100);
+        long stopSingle = System.nanoTime();
+        long startStreams = System.nanoTime();
+        scanDirectory.scanForSameParallel(allFiles, sameFiles, 100);
+        long stopStreams = System.nanoTime();
+        Updater updaterMock = Mockito.mock(Updater.class);
+        long startThreads = System.nanoTime();
+        scanDirectory.scanForSameParallelThread(allFiles, sameFiles, 100, updaterMock);
+        long stopThreads = System.nanoTime();
+        System.out.println("Time Single  : " + (double) (stopSingle - startSingle) / 1000000000.0 + " s");
+        System.out.println("Time Streams : " + (double) (stopStreams - startStreams) / 1000000000.0 + " s");
+        System.out.println("Time Threads : " + (double) (stopThreads - startThreads) / 1000000000.0 + " s");
+    }
+
 
     @Test
     public void partitionTestTwenty() {

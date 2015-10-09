@@ -19,7 +19,6 @@ public class PartitionObject {
     }
 
 
-
     public int getUpper() {
         return upper;
     }
