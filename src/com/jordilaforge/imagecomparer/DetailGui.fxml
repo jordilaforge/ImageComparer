@@ -1,25 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<GridPane fx:id="gridPane" fx:controller="com.jordilaforge.imagecomparer.ControllerDetail"
-          xmlns:fx="http://javafx.com/fxml">
-    <VBox GridPane.columnIndex="0" GridPane.rowIndex="0">
-        <children>
-            <ImageView fx:id="imageViewImage1" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true"
-                       preserveRatio="true"/>
-        </children>
-        <Label fx:id="image1Label"></Label>
-    </VBox>
-    <VBox GridPane.columnIndex="1" GridPane.rowIndex="0">
-        <Label fx:id="similarityLabel"></Label>
-    </VBox>
-    <VBox GridPane.columnIndex="2" GridPane.rowIndex="0">
-        <children>
-            <ImageView fx:id="imageViewImage2" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true"
-                       preserveRatio="true"/>
-        </children>
-        <Label fx:id="image2Label"></Label>
-    </VBox>
+<GridPane fx:id="gridPane" hgap="10" vgap="10" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="com.jordilaforge.imagecomparer.ControllerDetail">
+    <children>
+        <Label fx:id="image1Titel" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0"
+               GridPane.valignment="CENTER"/>
+        <ImageView fx:id="imageViewImage1" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
+                   GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1"
+                   GridPane.valignment="CENTER"/>
+        <ScrollPane GridPane.columnIndex="0" GridPane.rowIndex="2">
+            <content>
+                <Label fx:id="image1Label" GridPane.fillWidth="true"></Label>
+            </content>
+        </ScrollPane>
+        <Label fx:id="similarityLabel" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1"
+               GridPane.valignment="CENTER"/>
+        <Label fx:id="image2Titel" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="0"
+               GridPane.valignment="CENTER"/>
+        <ImageView fx:id="imageViewImage2" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true"
+                   GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1"
+                   GridPane.valignment="CENTER"/>
+        <ScrollPane GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <content>
+                <Label fx:id="image2Label" GridPane.fillWidth="true"/>
+            </content>
+        </ScrollPane>
+        <Button fx:id="closeButton" minWidth="80" onAction="#closeButtonAction" text="Close" GridPane.columnIndex="1"
+                GridPane.rowIndex="2" GridPane.rowSpan="3"/>
+    </children>
 </GridPane>

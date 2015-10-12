@@ -114,7 +114,7 @@ public class Controller {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Scene scene = new Scene(root, 600, 400);
+                Scene scene = new Scene(root, 1160, 480);
                 Stage stage = new Stage();
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(borderPane.getScene().getWindow());
