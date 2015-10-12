@@ -40,10 +40,13 @@
 
     <center>
         <TableView fx:id="tableView">
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
             <columns>
-                <TableColumn text="Image1" fx:id="image1Col" minWidth="350"/>
-                <TableColumn text="Image2" fx:id="image2Col" minWidth="350"/>
-                <TableColumn text="Similarity" fx:id="similarityCol" minWidth="20"/>
+                <TableColumn text="Image1" fx:id="image1Col"/>
+                <TableColumn text="Image2" fx:id="image2Col"/>
+                <TableColumn text="Similarity" fx:id="similarityCol"/>
             </columns>
         </TableView>
     </center>

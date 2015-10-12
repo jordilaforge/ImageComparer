@@ -106,14 +106,14 @@ public class Controller {
         //Doubleclick Event on Tableview
         tableView.setOnMousePressed(event -> {
             if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
-                CompareItem selectedItem = tableView.getSelectionModel().getSelectedItem();
-                Context.compareItem = selectedItem;
+                Context.compareItem = tableView.getSelectionModel().getSelectedItem();
                 Parent root = null;
                 try {
                     root = FXMLLoader.load(getClass().getResource("DetailGui.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                assert root != null;
                 Scene scene = new Scene(root, 1160, 480);
                 Stage stage = new Stage();
                 stage.initModality(Modality.WINDOW_MODAL);

@@ -5,7 +5,6 @@ import com.drew.imaging.ImageProcessingException;
 import com.drew.metadata.Directory;
 import com.drew.metadata.Metadata;
 import com.drew.metadata.Tag;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -59,20 +58,20 @@ public class ControllerDetail implements Initializable {
         try {
             metadata1 = ImageMetadataReader.readMetadata(image1);
             metadata2 = ImageMetadataReader.readMetadata(image2);
-        } catch (ImageProcessingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ImageProcessingException | IOException e) {
             e.printStackTrace();
         }
         StringBuilder image1Info = new StringBuilder();
         StringBuilder image2Info = new StringBuilder();
+        assert metadata1 != null;
         for (Directory directory : metadata1.getDirectories())
             for (Tag tag : directory.getTags()) {
-                image1Info.append(tag + "\n");
+                image1Info.append(tag).append("\n");
             }
+        assert metadata2 != null;
         for (Directory directory : metadata2.getDirectories())
             for (Tag tag : directory.getTags()) {
-                image2Info.append(tag + "\n");
+                image2Info.append(tag).append("\n");
             }
 
         try {
@@ -88,7 +87,7 @@ public class ControllerDetail implements Initializable {
     }
 
     @FXML
-    protected void closeButtonAction(ActionEvent actionEvent) {
+    protected void closeButtonAction() {
         // get a handle to the stage
         Stage stage = (Stage) closeButton.getScene().getWindow();
         // do what you have to do
