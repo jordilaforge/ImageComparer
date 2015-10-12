@@ -1,5 +1,7 @@
-package com.jordilaforge.imagecomparer;
+package com.jordilaforge.imagecomparer.tablecells;
 
+import com.jordilaforge.imagecomparer.CompareItem;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.image.Image;
@@ -17,24 +19,22 @@ public class ImageTableCell extends TableCell<CompareItem, String> {
     protected void updateItem(String item, boolean empty) {
         super.updateItem(item, empty);
         if (item == null || empty) {
-            setText(null);
-            setStyle("");
             setGraphic(null);
         } else {
             VBox vbox = new VBox();
             vbox.setSpacing(10);
             Label imageName = new Label(new File(item).getName());
             ImageView imageview = new ImageView();
+            imageview.setPreserveRatio(true);
+            imageview.fitWidthProperty().bind(this.widthProperty());
             imageview.setFitHeight(200);
-            imageview.setFitWidth(200);
             try {
                 imageview.setImage(new Image(String.valueOf(new File(item).toURI().toURL())));
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }
-
+            vbox.setAlignment(Pos.CENTER);
             vbox.getChildren().addAll(imageview, imageName);
-            //SETTING ALL THE GRAPHICS COMPONENT FOR CELL
             setGraphic(vbox);
         }
     }

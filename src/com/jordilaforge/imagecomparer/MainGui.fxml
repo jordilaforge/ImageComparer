@@ -44,9 +44,10 @@
                 <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
             </columnResizePolicy>
             <columns>
+                <TableColumn text="Nr" fx:id="numberCol" maxWidth="50" minWidth="50"/>
                 <TableColumn text="Image1" fx:id="image1Col"/>
+                <TableColumn text="Similarity" fx:id="similarityCol" maxWidth="100" minWidth="100"/>
                 <TableColumn text="Image2" fx:id="image2Col"/>
-                <TableColumn text="Similarity" fx:id="similarityCol"/>
             </columns>
         </TableView>
     </center>

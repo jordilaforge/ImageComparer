@@ -13,6 +13,7 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.File;
@@ -33,13 +34,13 @@ public class ControllerDetail implements Initializable {
     @FXML
     private Label image1Titel;
     @FXML
-    private Label image1Label;
+    private Text tagArea1;
     @FXML
     private Label similarityLabel;
     @FXML
     private Label image2Titel;
     @FXML
-    private Label image2Label;
+    private Text tagArea2;
     @FXML
     private Button closeButton;
 
@@ -75,22 +76,20 @@ public class ControllerDetail implements Initializable {
             }
 
         try {
-            image1Label.setText(image1Info.toString());
-            image2Label.setText(image2Info.toString());
             imageViewImage1.setImage(new Image(image1.toURI().toURL().toString()));
             imageViewImage2.setImage(new Image(image2.toURI().toURL().toString()));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
 
+        tagArea1.setText(image1Info.toString());
+        tagArea2.setText(image2Info.toString());
         similarityLabel.setText(String.valueOf(Context.compareItem.getSimilarity()) + "%");
     }
 
     @FXML
     protected void closeButtonAction() {
-        // get a handle to the stage
         Stage stage = (Stage) closeButton.getScene().getWindow();
-        // do what you have to do
         stage.close();
     }
 }

@@ -1,5 +1,9 @@
 package com.jordilaforge.imagecomparer;
 
+import com.jordilaforge.imagecomparer.tablecells.ImageTableCell;
+import com.jordilaforge.imagecomparer.tablecells.NumberTableCell;
+import com.jordilaforge.imagecomparer.tablecells.SimilarityTableCell;
+import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.concurrent.Task;
@@ -42,6 +46,8 @@ public class Controller {
     private BorderPane borderPane;
     @FXML
     private TableView<CompareItem> tableView;
+    @FXML
+    private TableColumn<CompareItem, CompareItem> numberCol;
     @FXML
     private TableColumn<CompareItem, String> image1Col;
     @FXML
@@ -114,7 +120,7 @@ public class Controller {
                     e.printStackTrace();
                 }
                 assert root != null;
-                Scene scene = new Scene(root, 1160, 480);
+                Scene scene = new Scene(root);
                 Stage stage = new Stage();
                 stage.initModality(Modality.WINDOW_MODAL);
                 stage.initOwner(borderPane.getScene().getWindow());
@@ -123,6 +129,8 @@ public class Controller {
                 stage.show();
             }
         });
+        numberCol.setCellValueFactory(p -> new ReadOnlyObjectWrapper<>(p.getValue()));
+        numberCol.setCellFactory(colum -> new NumberTableCell());
         similarityCol.setCellValueFactory(cellData -> cellData.getValue().similarityProperty().asObject());
         similarityCol.setCellFactory(column -> new SimilarityTableCell());
         image1Col.setCellValueFactory(cellData -> cellData.getValue().image1Property());
@@ -142,11 +150,9 @@ public class Controller {
         Task task = new Task<Void>() {
             @Override
             public Void call() {
-
+                updateProgress(0, 1);
                 scanDirectory.scanForSameParallelThread(allFiles, sameFiles, similaritySetting, () -> updateProgress(numberOfCompares.get(), totalNumberOfCompare));
                 updateProgress(1, 1);
-
-
                 return null;
             }
 
@@ -154,6 +160,7 @@ public class Controller {
         task.addEventHandler(WorkerStateEvent.WORKER_STATE_SUCCEEDED,
                 t -> {
                     task.getValue();
+                    tableView.refresh();
                     if (sameFiles.size() == 0) {
                         status.setText("Finished Scanning! No Similar Images Found (with " + similaritySetting + "%):");
                     } else {
