@@ -76,6 +76,12 @@ public class ControllerDetail implements Initializable {
             }
 
         try {
+            if (imageViewImage1.getFitWidth() > 400) {
+                imageViewImage1.setFitWidth(400);
+            }
+            if (imageViewImage2.getFitWidth() > 400) {
+                imageViewImage2.setFitWidth(400);
+            }
             imageViewImage1.setImage(new Image(image1.toURI().toURL().toString()));
             imageViewImage2.setImage(new Image(image2.toURI().toURL().toString()));
         } catch (MalformedURLException e) {

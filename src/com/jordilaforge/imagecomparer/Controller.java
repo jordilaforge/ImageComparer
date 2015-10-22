@@ -59,8 +59,6 @@ public class Controller {
     @FXML
     private Slider slider;
 
-    Context currentContext = new Context();
-
 
     @SuppressWarnings("UnusedParameters")
     @FXML
