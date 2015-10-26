@@ -27,14 +27,14 @@ public class ScanDirectoryTest {
 
 
     @Test
-    public void canDirTest() {
+    public void ScanDirectoryPathTest() {
         testPrepare();
         ArrayList<File> allFiles = scanDirectory.scanDir(testPath);
         Assert.assertEquals(21, allFiles.size());
     }
 
     @Test
-    public void scanForSameTest() {
+    public void scanForSameTestNoMultiThreads() {
         testPrepare();
         ArrayList<File> allFiles = scanDirectory.scanDir(testPath);
         Assert.assertEquals(21, allFiles.size());
@@ -155,6 +155,62 @@ public class ScanDirectoryTest {
         Assert.assertEquals(59, temp.get(0).getUpper());
         Assert.assertEquals(60, temp.get(1).getLower());
         Assert.assertEquals(119, temp.get(1).getUpper());
+    }
+
+    @Test
+    public void partitionTestSixteen() {
+        testPrepare();
+        temp = scanDirectory.partition(16, 8);
+        Assert.assertEquals(8, temp.size());
+        Assert.assertEquals(0, temp.get(0).getLower());
+        Assert.assertEquals(1, temp.get(0).getUpper());
+        Assert.assertEquals(2, temp.get(1).getLower());
+        Assert.assertEquals(3, temp.get(1).getUpper());
+        Assert.assertEquals(4, temp.get(2).getLower());
+        Assert.assertEquals(5, temp.get(2).getUpper());
+        Assert.assertEquals(6, temp.get(3).getLower());
+        Assert.assertEquals(7, temp.get(3).getUpper());
+        Assert.assertEquals(8, temp.get(4).getLower());
+        Assert.assertEquals(9, temp.get(4).getUpper());
+        Assert.assertEquals(10, temp.get(5).getLower());
+        Assert.assertEquals(11, temp.get(5).getUpper());
+        Assert.assertEquals(12, temp.get(6).getLower());
+        Assert.assertEquals(13, temp.get(6).getUpper());
+        Assert.assertEquals(14, temp.get(7).getLower());
+        Assert.assertEquals(15, temp.get(7).getUpper());
+    }
+
+    @Test
+    public void partitionTestSeven() {
+        testPrepare();
+        temp = scanDirectory.partition(7, 8);
+        Assert.assertEquals(1, temp.size());
+        Assert.assertEquals(0, temp.get(0).getLower());
+        Assert.assertEquals(6, temp.get(0).getUpper());
+    }
+
+    @Test
+    public void partitionTestTwo() {
+        testPrepare();
+        temp = scanDirectory.partition(2, 4);
+        Assert.assertEquals(1, temp.size());
+        Assert.assertEquals(0, temp.get(0).getLower());
+        Assert.assertEquals(1, temp.get(0).getUpper());
+    }
+
+    @Test
+    public void partitionTestFour() {
+        testPrepare();
+        temp = scanDirectory.partition(4, 4);
+        Assert.assertEquals(4, temp.size());
+        Assert.assertEquals(0, temp.get(0).getLower());
+        Assert.assertEquals(0, temp.get(0).getUpper());
+        Assert.assertEquals(1, temp.get(1).getLower());
+        Assert.assertEquals(1, temp.get(1).getUpper());
+        Assert.assertEquals(2, temp.get(2).getLower());
+        Assert.assertEquals(2, temp.get(2).getUpper());
+        Assert.assertEquals(3, temp.get(3).getLower());
+        Assert.assertEquals(3, temp.get(3).getUpper());
     }
 
     @Test

@@ -122,6 +122,10 @@ public class ScanDirectory {
      */
     public ArrayList<PartitionObject> partition(int size, int threadnumber) {
         ArrayList<PartitionObject> temp = new ArrayList<>();
+        if (size < threadnumber) {
+            temp.add(new PartitionObject(0, size - 1));
+            return temp;
+        }
         int step = size / threadnumber;
         for (int i = 0; i < threadnumber; i++) {
             int start = i * step;
