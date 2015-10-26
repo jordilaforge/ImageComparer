@@ -6,27 +6,27 @@ import org.junit.Test;
 
 public class CompareScreenshotTest {
 
-    private static final String FILE_1 = "test/resources/image_1.png";
-    private static final String FILE_2 = "test/resources/image_2.png";
-    private static final String FILE_50_1 = "test/resources/image_50_1.png";
-    private static final String FILE_TOTAL_BLACK = "test/resources/image_total_black.png";
-    private static final String FILE_TOTAL_WHITE = "test/resources/image_total_white.png";
-    private static final String FILE_50_300 = "test/resources/image_50_300.png";
-    private static final String FILE_75_2000 = "test/resources/image_75_2000.png";
-    private static final String FILE_75_300 = "test/resources/image_75_300.png";
-    private static final String FILE_50_300_400 = "test/resources/image_50_300_400.png";
-    private static final String FILE_50_400_300 = "test/resources/image_50_400_300.png";
-    private static final String FILE_TOTAL_WHITE_300 = "test/resources/image_total_white_300.png";
-    private static final String FILE_TOTAL_BLACK_300 = "test/resources/image_total_black_300.png";
-    private static final String FILE_TOTAL_WHITE_2000 = "test/resources/image_total_white_2000.png";
-    private static final String FILE_WIKI_BUILD0_NOCHANGE = "test/resources/wiki_build0_nochange.png";
-    private static final String FILE_WIKI_BUILD1_NOCHANGE = "test/resources/wiki_build1_nochange.png";
-    private static final String FILE_WIKI_BUILD0_CHANGE = "test/resources/wiki_build0_change.png";
-    private static final String FILE_WIKI_BUILD1_CHANGE = "test/resources/wiki_build1_change.png";
-    private static final String FILE_ERROR1 = "test/resources/image_error1.png";
-    private static final String FILE_ERROR2 = "test/resources/image_error2.png";
-    private static final String FILE_SMALLCHANGE1 = "test/resources/smallchanges1.png";
-    private static final String FILE_SMALLCHANGE2 = "test/resources/smallchanges2.png";
+    private static final String FILE_1 = "src/test/resources/images/image_1.png";
+    private static final String FILE_2 = "src/test/resources/images/image_2.png";
+    private static final String FILE_50_1 = "src/test/resources/images/image_50_1.png";
+    private static final String FILE_TOTAL_BLACK = "src/test/resources/images/image_total_black.png";
+    private static final String FILE_TOTAL_WHITE = "src/test/resources/images/image_total_white.png";
+    private static final String FILE_50_300 = "src/test/resources/images/image_50_300.png";
+    private static final String FILE_75_2000 = "src/test/resources/images/image_75_2000.png";
+    private static final String FILE_75_300 = "src/test/resources/images/image_75_300.png";
+    private static final String FILE_50_300_400 = "src/test/resources/images/image_50_300_400.png";
+    private static final String FILE_50_400_300 = "src/test/resources/images/image_50_400_300.png";
+    private static final String FILE_TOTAL_WHITE_300 = "src/test/resources/images/image_total_white_300.png";
+    private static final String FILE_TOTAL_BLACK_300 = "src/test/resources/images/image_total_black_300.png";
+    private static final String FILE_TOTAL_WHITE_2000 = "src/test/resources/images/image_total_white_2000.png";
+    private static final String FILE_WIKI_BUILD0_NOCHANGE = "src/test/resources/images/wiki_build0_nochange.png";
+    private static final String FILE_WIKI_BUILD1_NOCHANGE = "src/test/resources/images/wiki_build1_nochange.png";
+    private static final String FILE_WIKI_BUILD0_CHANGE = "src/test/resources/images/wiki_build0_change.png";
+    private static final String FILE_WIKI_BUILD1_CHANGE = "src/test/resources/images/wiki_build1_change.png";
+    private static final String FILE_ERROR1 = "src/test/resources/images/image_error1.png";
+    private static final String FILE_ERROR2 = "src/test/resources/images/image_error2.png";
+    private static final String FILE_SMALLCHANGE1 = "src/test/resources/images/smallchanges1.png";
+    private static final String FILE_SMALLCHANGE2 = "src/test/resources/images/smallchanges2.png";
 
     private static final double ACCURACY = 1;
 

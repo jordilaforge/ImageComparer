@@ -113,7 +113,7 @@ public class Controller {
                 Context.compareItem = tableView.getSelectionModel().getSelectedItem();
                 Parent root = null;
                 try {
-                    root = FXMLLoader.load(getClass().getResource("DetailGui.fxml"));
+                    root = FXMLLoader.load(getClass().getResource("/DetailGui.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

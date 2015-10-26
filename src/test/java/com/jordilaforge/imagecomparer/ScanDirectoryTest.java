@@ -18,6 +18,7 @@ public class ScanDirectoryTest {
     ScanDirectory scanDirectory;
     ArrayList<PartitionObject> temp;
     ObservableList<CompareItem> sameFiles;
+    private static final String testPath = "src/test/resources";
 
     private void testPrepare() {
         scanDirectory = new ScanDirectory();
@@ -28,14 +29,14 @@ public class ScanDirectoryTest {
     @Test
     public void canDirTest() {
         testPrepare();
-        ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
+        ArrayList<File> allFiles = scanDirectory.scanDir(testPath);
         Assert.assertEquals(21, allFiles.size());
     }
 
     @Test
     public void scanForSameTest() {
         testPrepare();
-        ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
+        ArrayList<File> allFiles = scanDirectory.scanDir(testPath);
         Assert.assertEquals(21, allFiles.size());
         scanDirectory.scanForSame(allFiles, sameFiles, 100);
         Assert.assertEquals(4, sameFiles.size());
@@ -45,7 +46,7 @@ public class ScanDirectoryTest {
     @Test
     public void scanForSameParallelThreadTest() {
         testPrepare();
-        ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
+        ArrayList<File> allFiles = scanDirectory.scanDir(testPath);
         Assert.assertEquals(21, allFiles.size());
         Updater updaterMock = Mockito.mock(Updater.class);
         scanDirectory.scanForSameParallelThread(allFiles, sameFiles, 100, updaterMock);
@@ -56,7 +57,7 @@ public class ScanDirectoryTest {
     @Test
     public void speedTest() {
         testPrepare();
-        ArrayList<File> allFiles = scanDirectory.scanDir("./bin/resources");
+        ArrayList<File> allFiles = scanDirectory.scanDir(testPath);
         Assert.assertEquals(21, allFiles.size());
         long startSingle = System.nanoTime();
         scanDirectory.scanForSame(allFiles, sameFiles, 100);
