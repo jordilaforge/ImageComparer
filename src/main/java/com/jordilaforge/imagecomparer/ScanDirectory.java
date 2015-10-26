@@ -21,7 +21,7 @@ public class ScanDirectory {
     private int threadnumber = 1;
 
     public ScanDirectory() {
-        threadnumber = Runtime.getRuntime().availableProcessors();
+        threadnumber = 8;//Runtime.getRuntime().availableProcessors();
     }
 
     /**
@@ -98,7 +98,7 @@ public class ScanDirectory {
 
         ExecutorService executor = Executors.newFixedThreadPool(threadnumber);
         List<File> allFilesSorted = allFiles.stream().parallel().sorted((file1, file2) -> (int) (file1.length() - file2.length())).collect(Collectors.toList());
-        ArrayList<PartitionObject> partitions = partition(allFilesSorted.size());
+        ArrayList<PartitionObject> partitions = partition(allFilesSorted.size(),threadnumber);
         for (PartitionObject partition : partitions) {
             Runnable worker = new CompareThread((ArrayList<File>) allFilesSorted, sameFiles, partition.getLower(), partition.getUpper(), similaritySetting, updater);
             executor.execute(worker);
@@ -120,7 +120,7 @@ public class ScanDirectory {
      * @param size number of elements
      * @return ArrayList of PartitionObject
      */
-    public ArrayList<PartitionObject> partition(int size) {
+    public ArrayList<PartitionObject> partition(int size,int threadnumber) {
         ArrayList<PartitionObject> temp = new ArrayList<>();
         int step = size / threadnumber;
         for (int i = 0; i < threadnumber; i++) {

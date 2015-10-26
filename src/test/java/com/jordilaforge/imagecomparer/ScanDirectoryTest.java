@@ -77,7 +77,7 @@ public class ScanDirectoryTest {
     @Test
     public void partitionTestTwenty() {
         testPrepare();
-        temp = scanDirectory.partition(20);
+        temp = scanDirectory.partition(20,4);
         Assert.assertEquals(4, temp.size());
         Assert.assertEquals(0, temp.get(0).getLower());
         Assert.assertEquals(4, temp.get(0).getUpper());
@@ -93,7 +93,7 @@ public class ScanDirectoryTest {
     @Test
     public void partitionTestTwentyOne() {
         testPrepare();
-        temp = scanDirectory.partition(21);
+        temp = scanDirectory.partition(21,4);
         Assert.assertEquals(4, temp.size());
         Assert.assertEquals(0, temp.get(0).getLower());
         Assert.assertEquals(4, temp.get(0).getUpper());
@@ -108,7 +108,7 @@ public class ScanDirectoryTest {
     @Test
     public void partitionTestNine() {
         testPrepare();
-        temp = scanDirectory.partition(9);
+        temp = scanDirectory.partition(9,4);
         Assert.assertEquals(4, temp.size());
         Assert.assertEquals(0, temp.get(0).getLower());
         Assert.assertEquals(1, temp.get(0).getUpper());
@@ -123,7 +123,7 @@ public class ScanDirectoryTest {
     @Test
     public void partitionTestTen() {
         testPrepare();
-        temp = scanDirectory.partition(10);
+        temp = scanDirectory.partition(10,4);
         Assert.assertEquals(4, temp.size());
         Assert.assertEquals(0, temp.get(0).getLower());
         Assert.assertEquals(1, temp.get(0).getUpper());
