@@ -26,8 +26,8 @@ import java.util.ArrayList;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Controller {
-    public static final AtomicInteger numberOfCompares = new AtomicInteger(0);
-    public static int totalNumberOfCompare = 0;
+    static final AtomicInteger numberOfCompares = new AtomicInteger(0);
+    static int totalNumberOfCompare = 0;
     private final ObservableList<CompareItem> sameFiles = FXCollections.observableArrayList();
     private ArrayList<File> allFiles = new ArrayList<>();
     private ScanDirectory scanDirectory;
@@ -66,11 +66,15 @@ public class Controller {
         DirectoryChooser directoryChooser = new DirectoryChooser();
         File selectedDirectory =
                 directoryChooser.showDialog(borderPane.getScene().getWindow());
-        searchButton.setDisable(false);
         if (selectedDirectory != null) {
-            directory.setText(selectedDirectory.getAbsolutePath());
             scanDirectory = new ScanDirectory();
             allFiles = scanDirectory.scanDir(selectedDirectory.getAbsolutePath());
+            if (allFiles.size() > 0) {
+                searchButton.setDisable(false);
+            } else {
+                searchButton.setDisable(true);
+            }
+            directory.setText(selectedDirectory.getAbsolutePath());
             status.setText("Number of files: " + allFiles.size() + " compares: " + scanDirectory.getNumberOfCompares(allFiles.size()));
         }
     }
@@ -78,14 +82,12 @@ public class Controller {
     @SuppressWarnings("UnusedParameters")
     @FXML
     protected void searchButtonAction(ActionEvent event) {
-        searchButton.setDisable(true);
-        directoryButton.setDisable(true);
-        slider.setDisable(true);
         if (allFiles.size() > 0) {
-            if (sameFiles != null) {
-                sameFiles.clear();
-                tableView.getItems().clear();
-            }
+            searchButton.setDisable(true);
+            directoryButton.setDisable(true);
+            slider.setDisable(true);
+            sameFiles.clear();
+            tableView.getItems().clear();
             status.setText("Searching for " + similaritySetting + "% similarity...");
             doComparison();
         } else {
@@ -104,9 +106,7 @@ public class Controller {
         status.setText("No directory chosen");
         searchButton.setDisable(true);
         // Handle Slider value change events.
-        slider.valueProperty().addListener((observable, oldValue, newValue) -> {
-            similaritySetting = newValue.intValue();
-        });
+        slider.valueProperty().addListener((observable, oldValue, newValue) -> similaritySetting = newValue.intValue());
         //Doubleclick Event on Tableview
         tableView.setOnMousePressed(event -> {
             if (event.isPrimaryButtonDown() && event.getClickCount() == 2) {
@@ -142,7 +142,7 @@ public class Controller {
     /**
      * Does the actual compare and shows result
      */
-    public void doComparison() {
+    private void doComparison() {
 
 
         Task task = new Task<Void>() {
